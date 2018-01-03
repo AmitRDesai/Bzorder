@@ -1,4 +1,4 @@
-firbase installation:
+#firbase installation:
 npm i --s firebase
 
 ngx-bootstrap
