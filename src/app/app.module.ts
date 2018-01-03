@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { TabsModule } from 'ngx-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
+import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 
 @NgModule({
   
@@ -15,7 +16,8 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     TabsModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    Ng4GeoautocompleteModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
