@@ -1,4 +1,5 @@
-Testing2
+firbase installation:
+npm i --s firebase
 
 # Bzorder
 
