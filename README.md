@@ -1,6 +1,9 @@
 firbase installation:
 npm i --s firebase
 
+ngx-bootstrap
+npm install ngx-bootstrap bootstrap --save
+
 # Bzorder
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
