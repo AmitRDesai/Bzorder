@@ -1,0 +1,19 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+  <div class="list-group">
+      <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+          <i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'Home'  }}
+      </a>
+      <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+          <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ 'About Us'  }}
+      </a>
+      <a [routerLink]="['/tables']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+          <i class="fa fa-fw fa-table"></i>&nbsp;{{ 'Partner with us'  }}
+      </a>
+      <a [routerLink]="['/forms']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+          <i class="fa fa-fw fa-edit"></i>&nbsp;{{ 'Support/Help'  }}
+      </a>
+      <a [routerLink]="['/bs-element']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+          <i class="fa fa-fw fa-desktop"></i>&nbsp;{{ 'Login/SignUp'  }}
+      </a>
+  </div>
+</nav>
