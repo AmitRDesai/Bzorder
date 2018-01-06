@@ -21,14 +21,14 @@ import { AuthService } from './auth/auth.service';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
     LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     Ng4GeoautocompleteModule.forRoot(),
-    NgbDropdownModule.forRoot()
+    NgbDropdownModule.forRoot(),
     FormsModule
   ],
   providers: [AuthService],
