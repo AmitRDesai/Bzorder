@@ -37,7 +37,7 @@ import { AuthGuard } from './auth/auth.guard';
     LoadingModule,
     CoreModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
