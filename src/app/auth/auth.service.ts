@@ -18,7 +18,9 @@ export class AuthService {
       res => {
         firebase.auth().currentUser.getIdToken()
         .then(
-          (token: string) => {this.token = token;
+          (token: string) => {
+            this.token = token;
+            console.log(this.token);
             this.isLoggedIn = true;
             this.router.navigate(['/home']);
           }
@@ -28,5 +30,19 @@ export class AuthService {
     .catch(
       err => console.log(err)
     );
+  }
+
+  logout(){
+    this.token = null;
+    this.isLoggedIn = false;
+  }
+
+  isAuth(){
+    if(this.token){
+      return true;
+    }else{
+      this.router.navigate(['login']);
+      return false;
+    }
   }
 }

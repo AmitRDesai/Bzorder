@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -13,13 +15,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(user){
+  login(form: NgForm){
     this.loading = true;
-    setTimeout(function() {
-      //this.ng4LoadingSpinnerService.hide();
-    }.bind(this), 4000);
-    this.auth.login(user.value);
-    
+    this.auth.login(form.value);
   }
 
 }

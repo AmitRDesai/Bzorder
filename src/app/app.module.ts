@@ -14,6 +14,7 @@ import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from './auth/auth.service';
 import { CoreModule } from './core/core.module';
+import { AuthGuard } from './auth/auth.guard';
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { CoreModule } from './core/core.module';
     LoadingModule,
     CoreModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
