@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from './auth/auth.service';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { AuthService } from './auth/auth.service';
     Ng4GeoautocompleteModule.forRoot(),
     NgbDropdownModule.forRoot(),
     FormsModule,
-    LoadingModule
+    LoadingModule,
+    CoreModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

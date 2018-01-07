@@ -1,0 +1,17 @@
+{
+    "items" : {
+        "1":{
+            "name": "Item one",
+            "description": "Item one description",
+            "price": 10,
+            "category": "1",
+            "image": ""
+        }
+    },
+    "categories":{
+        "1": "Food",
+        "2": "Bakery Item",
+        "3": "Grocey",
+        "4": "Sweets"
+    }
+}

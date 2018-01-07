@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { AuthService } from './auth/auth.service';
+import { DatabaseService } from './core/database.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ export class AppComponent implements OnInit{
   ngOnInit(){
     firebase.initializeApp({
       apiKey: "AIzaSyAeaih3MuZwomQ2VUbVI3rOiYV9RVNd0P0",
-      authDomain: "bzorder07.firebaseio.com"
+      authDomain: "bzorder07.firebaseio.com",
+      databaseURL: 'bzorder07.firebaseio.com'
     });
   }
   
