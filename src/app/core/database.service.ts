@@ -12,6 +12,9 @@ export class DatabaseService {
   private usersRef : firebase.database.Reference;
 
   constructor(private http: HttpClient) { 
+  }
+
+  init(){
     this.rootRef = firebase.database().ref();
     this.itemsRef = this.rootRef.child('items');
     this.usersRef = this.rootRef.child('users');
@@ -22,6 +25,6 @@ export class DatabaseService {
   }
 
   getUserById(uid: string){
-    return this.usersRef.child(uid).once('value').then( (user) => {return user;});
+    return this.usersRef.child(uid).once('value').then( (user) => {return user.val();});
   }
 }

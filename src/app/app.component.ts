@@ -10,7 +10,7 @@ import { DatabaseService } from './core/database.service';
 })
 export class AppComponent implements OnInit{
 
-  constructor(private auth: AuthService){}
+  constructor(private auth: AuthService, private data: DatabaseService){}
 
   ngOnInit(){
     firebase.initializeApp({
@@ -18,6 +18,7 @@ export class AppComponent implements OnInit{
       authDomain: "bzorder07.firebaseio.com",
       databaseURL: 'bzorder07.firebaseio.com'
     });
+    this.data.init();
   }
   
 }
