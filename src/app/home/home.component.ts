@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DatabaseService } from '../core/database.service';
+import { ToastNotificationComponent } from '../toast-notification/toast-notification.component'
 
 @Component({
   selector: 'app-home',
@@ -7,11 +8,31 @@ import { DatabaseService } from '../core/database.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  public settingForHyd: any;
+  @ViewChild( "toast" ) toast: ToastNotificationComponent;
 
-  constructor(private data:DatabaseService) { }
-
+  constructor(private data:DatabaseService) { 
+    this.settingForHyd = {
+      showRecentSearch: false,
+      geoCountryRestriction: ['in'],
+      geoLocation: [17.387140, 78.491684],
+      geoRadius: 20,
+      inputString: ''
+    }
+  }
+    
   ngOnInit() {
     this.data.getAllItems().then(items => console.log(items));
+  }
+
+  autoCompleteCallback1(selectedData:any) {
+    let arr: string[] = selectedData.data.formatted_address.split(",");
+    let city: string = arr[arr.length-2].split(" ")[1];
+    console.log(city.toLowerCase());
+    if(city.toLowerCase() != 'hyderabad'){
+      this.toast.error('Home','Place must be of hyderabad only.');
+    }
+
   }
 
 }
