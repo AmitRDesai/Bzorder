@@ -10,14 +10,14 @@
         <form #form="ngForm" (ngSubmit)="login(form)">
           <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input class="form-control" type="text" ngModel name='email' placeholder="username"/>          
+            <input class="form-control" type="text" ngModel name='email' placeholder="username" required/>          
           </div>
           <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <input class="form-control" type="password" ngModel name='password' placeholder="password"/>     
+            <input class="form-control" type="password" ngModel name='password' placeholder="password" required/>     
           </div>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <button type="submit" [disabled]="!form.valid" class="btn btn-primary btn-block">Login</button>
           </div>
           <div class="form-group text-center">
             <a href="#">Forgot Password</a>&nbsp;|&nbsp;<a href="#">Support</a>
