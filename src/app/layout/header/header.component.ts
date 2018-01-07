@@ -18,13 +18,5 @@ export class HeaderComponent implements OnInit {
     this.auth.logout();
     this.router.navigate(['']);
   }
-  isToggled(): boolean {
-    const dom: Element = document.querySelector('body');
-    return dom.classList.contains(this.pushRightClass);
-}
-
-toggleSidebar() {
-    const dom: any = document.querySelector('body');
-    dom.classList.toggle(this.pushRightClass);
-}
+  
 }
