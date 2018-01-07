@@ -1,0 +1,14 @@
+.list-group{
+    margin-top: 20px;
+}
+.list-group-image{
+    width: 150px;
+    height: 150px;
+    margin-top: 20px;
+}
+.thumbnail{
+    border: unset;
+}
+.thumbnail-right{
+    border-right: 1px solid #ddd !important; 
+}

@@ -8,10 +8,14 @@ import { DatabaseService } from '../core/database.service';
 })
 export class HomeComponent implements OnInit {
 
+  categories: string[];
+
   constructor(private data:DatabaseService) { }
 
   ngOnInit() {
-    this.data.getAllItems().then(items => console.log(items));
+    this.data.getAllCategories().then(categories => 
+      this.categories = categories
+    );
   }
 
 }

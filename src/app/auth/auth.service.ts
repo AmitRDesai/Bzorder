@@ -39,7 +39,7 @@ export class AuthService {
   singUp(user: User) {
     firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
       .catch(
-      err => console.log(err)
+        err => console.log(err)
       );
   }
 

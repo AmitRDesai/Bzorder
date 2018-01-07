@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import * as firebase from 'firebase';
 import { AuthService } from './auth/auth.service';
 import { DatabaseService } from './core/database.service';
@@ -8,7 +8,9 @@ import { DatabaseService } from './core/database.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, DoCheck{
+
+  height;
 
   constructor(private auth: AuthService, private data: DatabaseService){}
 
@@ -20,6 +22,12 @@ export class AppComponent implements OnInit{
       databaseURL: 'bzorder07.firebaseio.com'
     });
     this.data.init();
+    window.onresize = this.ngDoCheck;
+  }
+
+  ngDoCheck(){
+    console.log(window.innerHeight);
+    this.height = window.innerHeight - 110;
   }
   
 }
