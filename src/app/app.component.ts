@@ -10,9 +10,7 @@ import { DatabaseService } from './core/database.service';
 })
 export class AppComponent implements OnInit{
 
-  constructor(private auth: AuthService){
-    auth.isLoggedIn = true;
-  }
+  constructor(private auth: AuthService, private data: DatabaseService){}
 
   ngOnInit(){
 
@@ -21,6 +19,7 @@ export class AppComponent implements OnInit{
       authDomain: "bzorder07.firebaseio.com",
       databaseURL: 'bzorder07.firebaseio.com'
     });
+    this.data.init();
   }
   
 }

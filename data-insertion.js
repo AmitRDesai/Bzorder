@@ -14,6 +14,7 @@ rootRef.child('categories').set({
     "2": "Grocey",
     "3": "Sweets"
 })
+
 for(let i=0; i<10;i++){
     rootRef.child('items').push({
         "name": "Item" + i,

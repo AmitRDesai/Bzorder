@@ -13,8 +13,9 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
+  
   onLoggedout(){
-    this.auth.isLoggedIn = false;
+    this.auth.logout();
     this.router.navigate(['']);
   }
   isToggled(): boolean {
