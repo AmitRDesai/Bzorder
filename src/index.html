@@ -1,14 +1,52 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" style="text-align: center">
 <head>
   <meta charset="utf-8">
   <title>Bzorder</title>
   <base href="/">
-  <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true&key=AIzaSyDWHp3h4ucLZBfV-rhUPq0dAKZP8o0TUqw&region=IN&libraries=places&language=en-US"></script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-<body>
-  <app-root></app-root>
+<body style="vertical-align: middle">
+  <app-root>
+      <style>
+        .loader {
+          border: 10px solid #f3f3f3;
+          border-radius: 50%;
+          border-top: 10px solid blue;
+          border-bottom: 10px solid blue;
+          width: 100px;
+          height: 100px;
+          -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+        }
+        
+        @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+        
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        .bz-load{
+          width:150px;
+          position: fixed;
+          top: 30%;
+          right: calc( 50% - 75px);
+        }
+        .bz-load-body{
+          width:100%;
+          text-align:center;
+        }
+      </style>  
+      <div class="bz-load">
+        <div class="bz-load-body">
+          <div class="loader"></div>
+        </div>
+      </div>
+  </app-root>
 </body>
 </html>
