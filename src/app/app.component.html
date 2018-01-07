@@ -1,7 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <app-header *ngIf="auth.isLoggedIn"></app-header>
-  <app-sidebar></app-sidebar>
+  <div *ngIf="auth.isLoggedIn">
+    <app-header></app-header>
+    <app-sidebar></app-sidebar>
+  </div>
   <section class="main-container">
     <router-outlet></router-outlet>
   </section>
