@@ -2,11 +2,9 @@
 <div style="text-align:center">
   <div *ngIf="auth.isLoggedIn">
     <app-header></app-header>
-    <app-sidebar></app-sidebar>
   </div>
   <section class="main-container">
     <router-outlet></router-outlet>
   </section>
-  <router-outlet></router-outlet>
   <app-footer></app-footer>
 </div>

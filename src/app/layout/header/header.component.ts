@@ -8,7 +8,7 @@ import { AuthService } from '../../auth/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  pushRightClass: string = 'push-right';
   constructor(private auth: AuthService,private router: Router) { }
 
   ngOnInit() {
@@ -17,4 +17,13 @@ export class HeaderComponent implements OnInit {
     this.auth.isLoggedIn = false;
     this.router.navigate(['']);
   }
+  isToggled(): boolean {
+    const dom: Element = document.querySelector('body');
+    return dom.classList.contains(this.pushRightClass);
+}
+
+toggleSidebar() {
+    const dom: any = document.querySelector('body');
+    dom.classList.toggle(this.pushRightClass);
+}
 }

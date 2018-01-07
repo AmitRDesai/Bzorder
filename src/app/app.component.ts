@@ -10,9 +10,12 @@ import { DatabaseService } from './core/database.service';
 })
 export class AppComponent implements OnInit{
 
-  constructor(private auth: AuthService){}
+  constructor(private auth: AuthService){
+    auth.isLoggedIn = true;
+  }
 
   ngOnInit(){
+
     firebase.initializeApp({
       apiKey: "AIzaSyAeaih3MuZwomQ2VUbVI3rOiYV9RVNd0P0",
       authDomain: "bzorder07.firebaseio.com",
