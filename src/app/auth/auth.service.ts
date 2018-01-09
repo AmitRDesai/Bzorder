@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { User } from './user.modal';
 import { DatabaseService } from '../core/database.service';
+import { CoreService } from '../core/core.service';
 
 @Injectable()
 export class AuthService {
@@ -14,7 +15,9 @@ export class AuthService {
   recaptchaVerifier;
   confirmation;
 
-  constructor(private router: Router, private data: DatabaseService) { }
+  constructor(private router: Router,
+    private data: DatabaseService,
+    private core: CoreService) { }
 
   init() {
     firebase.auth().onAuthStateChanged(user => {
@@ -25,9 +28,10 @@ export class AuthService {
           this.loggedUser = user;
           this.router.navigate(['home']);
         });
-      }else{
+      } else {
         this.router.navigate(['login']);
       }
+      this.core.setLoading(false);
     });
     this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('phone-sign-in-recaptcha', {
       'size': 'invisible',
@@ -61,23 +65,25 @@ export class AuthService {
 
   sendCode(phone: string) {
     firebase.auth().signInWithPhoneNumber(phone, this.recaptchaVerifier)
-      .then(confirmation => this.confirmation = confirmation)
+      .then(confirmation => {this.confirmation = confirmation})
       .catch(err => console.log(err));
   }
 
   verifyCode(code) {
     this.confirmation.confirm(code).then(() => {
       firebase.auth().currentUser.getIdToken()
-        .then(
-        (token: string) => {
+        .then((token: string) => {
           this.token = token;
           this.data.getUserById(firebase.auth().currentUser.uid).then((user: User) => {
             this.loggedUser = user;
           });
           this.isLoggedIn = true;
           this.router.navigate(['/home']);
-        }
-        );
+          this.core.setLoading(false);
+        }).catch( err => {
+          console.log(err);
+          this.core.setLoading(false);
+        });
     });
   }
 

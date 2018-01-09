@@ -1,30 +1,34 @@
 <div class="container">
-  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
-<div class="row">
-  <div class="Absolute-Center is-Responsive">
-    <div id="logo-container">
-      <img src="../../assets/images/shopping-cart.png" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+  <div class="row">
+    <div class="Absolute-Center is-Responsive">
+      <div id="logo-container">
+        <img src="../../assets/images/shopping-cart.png" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+      </div>
+      <div id="logo-container"></div>
+      <div class="col-sm-12 col-md-12">
+        <form>
+          <div class="form-group input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-phone"></i>
+            </span>
+            <input class="form-control" type="text" [disabled]="state == 1" [(ngModel)]="phone" name='email' placeholder="phone" required/>
+          </div>
+          <div class="form-group input-group" *ngIf="state != 0">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-lock"></i>
+            </span>
+            <input class="form-control" type="text" [(ngModel)]="code" name='password' placeholder="OTP" required/>
+          </div>
+          <div class="form-group">
+            <button type="submit" id="sign-in-button" (click)="onSend()" class="btn btn-primary btn-block">Verify</button>
+            <button type="submit" *ngIf="state != 0" (click)="code = ''; state = 0" class="btn btn-default btn-block">Re-sent</button>
+          </div>
+          <div class="form-group text-center">
+            <a href="#">Forgot Password</a>&nbsp;|&nbsp;
+            <a href="#">Support</a>
+          </div>
+        </form>
+      </div>
     </div>
-    <div id="logo-container"></div>
-    <div class="col-sm-12 col-md-12">
-      <form>
-        <div class="form-group input-group">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-          <input class="form-control" type="text" [disabled]="state == 1" [(ngModel)]="phone" name='email' placeholder="phone" required/>          
-        </div>
-        <div class="form-group input-group" *ngIf="state != 0">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-          <input class="form-control" type="text" [(ngModel)]="code" name='password' placeholder="OTP" required/>     
-        </div>
-        <div class="form-group">
-          <button type="submit" id="sign-in-button" (click)="onSend()" class="btn btn-primary btn-block">Verify</button>
-          <button type="submit" *ngIf="state != 0" (click)="code = ''; state = 0" class="btn btn-default btn-block">Re-sent</button>
-        </div>
-        <div class="form-group text-center">
-          <a href="#">Forgot Password</a>&nbsp;|&nbsp;<a href="#">Support</a>
-        </div>
-      </form>        
-    </div>  
-  </div>    
-</div>
+  </div>
 </div>

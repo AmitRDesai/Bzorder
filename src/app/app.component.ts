@@ -2,6 +2,7 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 import * as firebase from 'firebase';
 import { AuthService } from './auth/auth.service';
 import { DatabaseService } from './core/database.service';
+import { CoreService } from './core/core.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,9 @@ export class AppComponent implements OnInit, DoCheck{
 
   height;
 
-  constructor(private auth: AuthService, private data: DatabaseService){}
+  constructor(private auth: AuthService, 
+    private data: DatabaseService,
+    private core:CoreService){}
 
   ngOnInit(){
 

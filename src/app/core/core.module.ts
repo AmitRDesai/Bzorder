@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { DatabaseService } from './database.service';
 import { DropDownDirective } from './drop-down.directive';
+import { CoreService } from './core.service';
 
 @NgModule({
   imports: [
@@ -11,7 +12,7 @@ import { DropDownDirective } from './drop-down.directive';
     HttpClientModule
   ],
   declarations: [DropDownDirective],
-  providers: [DatabaseService],
+  providers: [DatabaseService, CoreService],
   exports:[DropDownDirective]
 })
 export class CoreModule { }

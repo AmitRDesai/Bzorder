@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { CoreService } from '../../core/core.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -8,27 +9,31 @@ import { AuthService } from '../auth.service';
 })
 export class SignInComponent implements OnInit, AfterViewInit {
 
-  phone : string = '+91';
-  code : number;
-  state : number = 0;
+  phone: string = '+91';
+  code: number;
+  state: number = 0;
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService,
+    private core: CoreService) { }
 
   ngOnInit() {
   }
 
-  ngAfterViewInit(){
-    
+  ngAfterViewInit() {
+
   }
 
-  onSend(){
-    switch(this.state){
+  onSend() {
+    switch (this.state) {
       case 0:
         this.auth.sendCode(this.phone);
         this.state = 1;
         break;
       case 1:
-      this.auth.verifyCode(this.code);
+        if (this.code) {
+          this.auth.verifyCode(this.code);
+          this.core.setLoading(true);
+        }
         break;
       case 2:
         break;
