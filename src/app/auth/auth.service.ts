@@ -11,8 +11,31 @@ export class AuthService {
   isLoggedIn = false;
   loggedUser: User;
   token = null;
+  recaptchaVerifier;
+  confirmation;
 
   constructor(private router: Router, private data: DatabaseService) { }
+
+  init() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.data.getUserById(firebase.auth().currentUser.uid).then((user: User) => {
+          this.isLoggedIn = true;
+          this.token = firebase.auth().currentUser.getIdToken();
+          this.loggedUser = user;
+          this.router.navigate(['home']);
+        });
+      }else{
+        this.router.navigate(['login']);
+      }
+    });
+    this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('phone-sign-in-recaptcha', {
+      'size': 'invisible',
+      'callback': function (response) {
+        // reCAPTCHA solved, allow signInWithPhoneNumber.
+      }
+    });
+  }
 
   login(user: User) {
     firebase.auth().signInWithEmailAndPassword(user.email, user.password)
@@ -22,7 +45,7 @@ export class AuthService {
           .then(
           (token: string) => {
             this.token = token;
-            this.data.getUserById(firebase.auth().currentUser.uid).then((user: User)=>{
+            this.data.getUserById(firebase.auth().currentUser.uid).then((user: User) => {
               this.loggedUser = user;
             });
             this.isLoggedIn = true;
@@ -36,24 +59,42 @@ export class AuthService {
       );
   }
 
+  sendCode(phone: string) {
+    firebase.auth().signInWithPhoneNumber(phone, this.recaptchaVerifier)
+      .then(confirmation => this.confirmation = confirmation)
+      .catch(err => console.log(err));
+  }
+
+  verifyCode(code) {
+    this.confirmation.confirm(code).then(() => {
+      firebase.auth().currentUser.getIdToken()
+        .then(
+        (token: string) => {
+          this.token = token;
+          this.data.getUserById(firebase.auth().currentUser.uid).then((user: User) => {
+            this.loggedUser = user;
+          });
+          this.isLoggedIn = true;
+          this.router.navigate(['/home']);
+        }
+        );
+    });
+  }
+
   singUp(user: User) {
     firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
       .catch(
-        err => console.log(err)
+      err => console.log(err)
       );
   }
 
   logout() {
     this.token = null;
     this.isLoggedIn = false;
+    firebase.auth().signOut();
   }
 
   isAuth() {
-    if (this.token) {
-      return true;
-    } else {
-      this.router.navigate(['login']);
-      return false;
-    }
+    return this.isLoggedIn;
   }
 }

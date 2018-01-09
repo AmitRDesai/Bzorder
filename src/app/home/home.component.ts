@@ -9,11 +9,11 @@ import { ToastNotificationComponent } from '../toast-notification/toast-notifica
 })
 export class HomeComponent implements OnInit {
   public settingForHyd: any;
-  @ViewChild( "toast" ) toast: ToastNotificationComponent;
+  @ViewChild("toast") toast: ToastNotificationComponent;
 
   categories: string[];
 
-  constructor(private data:DatabaseService) { 
+  constructor(private data: DatabaseService) {
     this.settingForHyd = {
       showRecentSearch: false,
       geoCountryRestriction: ['in'],
@@ -22,21 +22,25 @@ export class HomeComponent implements OnInit {
       inputString: ''
     }
   }
-    
+
   ngOnInit() {
-    this.data.getAllCategories().then(categories => 
+    this.data.getAllCategories().then(categories =>
       this.categories = categories
     );
   }
 
-  autoCompleteCallback1(selectedData:any) {
+  autoCompleteCallback1(selectedData: any) {
     let arr: string[] = selectedData.data.formatted_address.split(",");
-    let city: string = arr[arr.length-2].split(" ")[1];
+    let city: string = arr[arr.length - 2].split(" ")[1];
     console.log(city.toLowerCase());
-    if(city.toLowerCase() != 'hyderabad'){
-      this.toast.error('Home','Place must be of hyderabad only.');
+    if (city.toLowerCase() != 'hyderabad') {
+      this.toast.error('Home', 'Place must be of hyderabad only.');
     }
+  }
 
+  onSelect(i){
+    console.log(i);
+    this.data.getItemsByCategoryId(i).then(items => console.log(items));
   }
 
 }

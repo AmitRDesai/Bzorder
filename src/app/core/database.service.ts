@@ -28,6 +28,13 @@ export class DatabaseService {
     });
   }
 
+  getItemsByCategoryId(categoryId) {
+    return this.itemsRef.orderByChild('category').equalTo(categoryId)
+      .once('value').then((items) => {
+      return items.val();
+    });
+  }
+
   getUserById(uid: string) {
     return this.usersRef.child(uid).once('value').then((user) => {
       return user.val();

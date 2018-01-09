@@ -21,12 +21,12 @@ export class AppComponent implements OnInit, DoCheck{
       authDomain: "bzorder07.firebaseio.com",
       databaseURL: 'bzorder07.firebaseio.com'
     });
+    this.auth.init();
     this.data.init();
     window.onresize = this.ngDoCheck;
   }
 
   ngDoCheck(){
-    console.log(window.innerHeight);
     this.height = window.innerHeight - 110;
   }
   

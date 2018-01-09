@@ -7,7 +7,7 @@
           <div class="thumbnail text-center" [ngClass]="(i < categories.length - 1) ? 'thumbnail-right' : ''">
               <img class="group list-group-image" [src]="'../../assets/images/' + category +'.jpg'" alt="" />
               <div class="caption">
-                  <a><h4 class="group inner list-group-item-heading">
+                  <a style="cursor: pointer;" (click)="onSelect(i)"><h4 class="group inner list-group-item-heading">
                       {{category}}</h4></a>
               </div>
           </div>
