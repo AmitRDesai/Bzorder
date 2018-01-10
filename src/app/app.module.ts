@@ -10,8 +10,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './auth/login/login.component';
-import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
@@ -27,7 +25,6 @@ import { SignInComponent } from './auth/sign-in/sign-in.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    SidebarComponent,
     SignInComponent,
     ToastNotificationComponent,
     SignInComponent  
