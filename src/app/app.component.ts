@@ -13,9 +13,9 @@ export class AppComponent implements OnInit, DoCheck{
 
   height;
 
-  constructor(private auth: AuthService, 
-    private data: DatabaseService,
-    private core:CoreService){}
+  constructor(public auth: AuthService, 
+    public data: DatabaseService,
+    public core:CoreService){}
 
   ngOnInit(){
 
