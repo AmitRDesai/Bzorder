@@ -9,7 +9,7 @@ import { AuthService } from '../../auth/auth.service';
 })
 export class HeaderComponent implements OnInit {
   pushRightClass: string = 'push-right';
-  constructor(public auth: AuthService,private router: Router) { }
+  constructor(public auth: AuthService,public router: Router) { }
 
   ngOnInit() {
   }
