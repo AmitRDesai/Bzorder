@@ -18,6 +18,7 @@ import { CoreModule } from './core/core.module';
 import { AuthGuard } from './auth/auth.guard';
 import { ToastNotificationComponent } from './toast-notification/toast-notification.component';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
+import { MenuListComponent } from './menu-list/menu-list.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SignInComponent } from './auth/sign-in/sign-in.component';
     HomeComponent,
     SignInComponent,
     ToastNotificationComponent,
-    SignInComponent  
+    SignInComponent,
+    MenuListComponent
   ],
   imports: [
     BrowserModule,

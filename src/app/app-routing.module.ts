@@ -7,7 +7,11 @@ import { SignInComponent } from './auth/sign-in/sign-in.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: SignInComponent },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] }
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'about-us', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'partner-with-us', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'support', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'my-profile', component: HomeComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

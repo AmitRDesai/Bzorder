@@ -1,9 +1,12 @@
 var firebase = require('firebase');
 
 firebase.initializeApp({
-    apiKey: "AIzaSyAeaih3MuZwomQ2VUbVI3rOiYV9RVNd0P0",
-      authDomain: "bzorder07.firebaseio.com",
-      databaseURL: 'bzorder07.firebaseio.com'
+    apiKey: "AIzaSyAK3W-9RTSSVJw579ZJaC0F7ZkxJZo7x2Y",
+    authDomain: "bzorder01.firebaseapp.com",
+    databaseURL: "https://bzorder01.firebaseio.com",
+    projectId: "bzorder01",
+    storageBucket: "bzorder01.appspot.com",
+    messagingSenderId: "1032338270823"
 })
 
 let rootRef  = firebase.database().ref();
