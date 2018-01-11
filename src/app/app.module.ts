@@ -19,6 +19,8 @@ import { AuthGuard } from './auth/auth.guard';
 import { ToastNotificationComponent } from './toast-notification/toast-notification.component';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { MenuListComponent } from './menu-list/menu-list.component';
+import { UserService } from './auth/user.service';
+import { SingUpComponent } from './auth/sing-up/sing-up.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { MenuListComponent } from './menu-list/menu-list.component';
     SignInComponent,
     ToastNotificationComponent,
     SignInComponent,
-    MenuListComponent
+    MenuListComponent,
+    SingUpComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,7 @@ import { MenuListComponent } from './menu-list/menu-list.component';
     CoreModule,
     SimpleNotificationsModule.forRoot()
   ],
-  providers: [AuthService],
+  providers: [AuthService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

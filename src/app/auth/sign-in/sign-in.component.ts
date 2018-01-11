@@ -31,8 +31,8 @@ export class SignInComponent implements OnInit, AfterViewInit {
         break;
       case 1:
         if (this.code) {
-          this.auth.verifyCode(this.code);
           this.core.setLoading(true);
+          this.auth.verifyCode(this.code)
         }
         break;
       case 2:

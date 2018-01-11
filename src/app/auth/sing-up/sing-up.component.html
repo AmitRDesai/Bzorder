@@ -1,0 +1,42 @@
+<div class="container">
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+  <div class="row">
+    <div class="Absolute-Center is-Responsive">
+      <div id="logo-container">
+        <img src="../../assets/images/shopping-cart.png" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+      </div>
+      <div id="logo-container"></div>
+      <div class="col-sm-12 col-md-12">
+        <form #form="ngForm" (ngSubmit)="signUp(form)">
+          <div class="form-group input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-user"></i>
+            </span>
+            <input class="form-control" type="text" ngModel name='displayName' placeholder="Name" required/>
+          </div>
+          <div class="form-group input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-envelope"></i>
+            </span>
+            <input class="form-control" type="text" ngModel name='email' placeholder="Email" required/>
+          </div>
+          <div class="form-group input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-lock"></i>
+            </span>
+            <input class="form-control" type="password" ngModel name='password' placeholder="password" required/>
+          </div>
+          <div class="form-group input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-lock"></i>
+            </span>
+            <input class="form-control" type="password" ngModel name='confirm-password' placeholder="confirm-password" required/>
+          </div>
+          <div class="form-group">
+            <button type="submit" [disabled]="!form.valid" class="btn btn-primary btn-block">Continue</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
