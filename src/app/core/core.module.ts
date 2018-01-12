@@ -5,14 +5,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { DatabaseService } from './database.service';
 import { DropDownDirective } from './drop-down.directive';
 import { CoreService } from './core.service';
+import { ArrayPipe } from './array.pipe';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule
   ],
-  declarations: [DropDownDirective],
+  declarations: [DropDownDirective, ArrayPipe],
   providers: [DatabaseService, CoreService],
-  exports:[DropDownDirective]
+  exports:[DropDownDirective, ArrayPipe]
 })
 export class CoreModule { }

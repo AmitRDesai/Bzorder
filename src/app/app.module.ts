@@ -21,6 +21,7 @@ import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { UserService } from './auth/user.service';
 import { SingUpComponent } from './auth/sing-up/sing-up.component';
 import { VendorListComponent } from './vendor-list/vendor-list.component';
+import { VendorDetailsComponent } from './vendor-details/vendor-details.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { VendorListComponent } from './vendor-list/vendor-list.component';
     ToastNotificationComponent,
     SignInComponent,
     SingUpComponent,
-    VendorListComponent
+    VendorListComponent,
+    VendorDetailsComponent
   ],
   imports: [
     BrowserModule,

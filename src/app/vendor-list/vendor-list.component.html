@@ -1,4 +1,11 @@
-<pre>
-  {{ category }}
-  {{vendors | json}}
-</pre>
+<div class="row">
+  <h3> {{ category }}</h3>
+  <hr>
+</div>
+<div class="row">
+  <dir class="col-md-6" *ngFor="let vendor of vendors | array">
+    <li class="list-group-item" (click)="onSelect(vendor.id)">
+      {{ vendor.name }}
+    </li>
+  </dir>
+</div>
