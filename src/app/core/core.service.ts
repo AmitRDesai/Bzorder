@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class CoreService {
 
-  loading = true;
-
+  loading = new Subject<boolean>();
   constructor() { }
 
   setLoading(loading: boolean){
-    this.loading = loading;
+    this.loading.next(loading);
   }
 
 }

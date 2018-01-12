@@ -1,0 +1,31 @@
+category
+	0: 'Food',
+	1: 'Bakery'
+	2: 'Grocey'
+	3: 'Sweets'
+
+vendor
+	vender_id {
+		category_id
+		name
+		location
+		description
+		image
+	}
+
+item
+	item_id {
+		vender_id
+		name
+		description
+		price
+		image
+	}
+
+order
+	order_id {
+		user_id
+		vender_id
+		items
+		status
+	}

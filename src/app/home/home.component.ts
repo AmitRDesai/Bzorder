@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DatabaseService } from '../core/database.service';
 import { ToastNotificationComponent } from '../toast-notification/toast-notification.component'
+import { CoreService } from '../core/core.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +15,9 @@ export class HomeComponent implements OnInit {
 
   categories: string[];
 
-  constructor(private data: DatabaseService) {
+  constructor(private data: DatabaseService,
+    private core: CoreService,
+    private router: Router) {
     this.settingForHyd = {
       showRecentSearch: false,
       geoCountryRestriction: ['in'],
@@ -40,7 +44,7 @@ export class HomeComponent implements OnInit {
 
   onSelect(i){
     console.log(i);
-    this.data.getItemsByCategoryId(i).then(items => console.log(items));
+    this.router.navigate(['vendor', i]);
   }
 
 }

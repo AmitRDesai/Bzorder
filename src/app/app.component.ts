@@ -12,6 +12,7 @@ import { CoreService } from './core/core.service';
 export class AppComponent implements OnInit, DoCheck{
 
   height;
+  loading = true;
 
   constructor(public auth: AuthService, 
     public data: DatabaseService,
@@ -30,6 +31,9 @@ export class AppComponent implements OnInit, DoCheck{
     this.auth.init();
     this.data.init();
     window.onresize = this.ngDoCheck;
+    this.core.loading.subscribe((loading)=>{
+      setTimeout(()=>{this.loading = loading;}, 50);
+    })
   }
 
   ngDoCheck(){

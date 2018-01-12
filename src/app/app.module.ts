@@ -18,9 +18,9 @@ import { CoreModule } from './core/core.module';
 import { AuthGuard } from './auth/auth.guard';
 import { ToastNotificationComponent } from './toast-notification/toast-notification.component';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
-import { MenuListComponent } from './menu-list/menu-list.component';
 import { UserService } from './auth/user.service';
 import { SingUpComponent } from './auth/sing-up/sing-up.component';
+import { VendorListComponent } from './vendor-list/vendor-list.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +31,8 @@ import { SingUpComponent } from './auth/sing-up/sing-up.component';
     SignInComponent,
     ToastNotificationComponent,
     SignInComponent,
-    MenuListComponent,
-    SingUpComponent
+    SingUpComponent,
+    VendorListComponent
   ],
   imports: [
     BrowserModule,
