@@ -10,8 +10,7 @@ import { CoreService } from '../core/core.service';
 export class AuthService {
 
   isLoggedIn = false;
-  loggedUser: User;
-  token = null;
+  loggedUser: firebase.User;
   recaptchaVerifier;
   confirmation;
 
@@ -22,12 +21,13 @@ export class AuthService {
   init() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        this.data.getUserById(firebase.auth().currentUser.uid).then((user: User) => {
+        this.loggedUser = user;
+        if (user.displayName){
           this.isLoggedIn = true;
-          this.token = firebase.auth().currentUser.getIdToken();
-          this.loggedUser = user;
           this.router.navigate(['home']);
-        });
+        }else{
+          this.router.navigate(['sign-up']);
+        }
       } else {
         this.router.navigate(['login']);
       }
@@ -45,19 +45,7 @@ export class AuthService {
     firebase.auth().signInWithEmailAndPassword(user.email, user.password)
       .then(
       res => {
-        firebase.auth().currentUser.getIdToken()
-          .then(
-          (token: string) => {
-            this.token = token;
-            this.data.getUserById(firebase.auth().currentUser.uid).then((user: User) => {
-              this.loggedUser = user;
-            });
-            this.isLoggedIn = true;
-            this.router.navigate(['/home']);
-          }
-          );
-      }
-      )
+      })
       .catch(
       err => console.log(err)
       );
@@ -65,26 +53,17 @@ export class AuthService {
 
   sendCode(phone: string) {
     firebase.auth().signInWithPhoneNumber(phone, this.recaptchaVerifier)
-      .then(confirmation => {this.confirmation = confirmation})
+      .then(confirmation => { this.confirmation = confirmation })
       .catch(err => console.log(err));
   }
 
   verifyCode(code) {
     this.confirmation.confirm(code).then(() => {
-      firebase.auth().currentUser.getIdToken()
-        .then((token: string) => {
-          this.token = token;
-          this.data.getUserById(firebase.auth().currentUser.uid).then((user: User) => {
-            this.loggedUser = user;
-          });
-          this.isLoggedIn = true;
-          this.router.navigate(['/home']);
           this.core.setLoading(false);
-        }).catch( err => {
+        }).catch(err => {
           console.log(err);
           this.core.setLoading(false);
         });
-    });
   }
 
   singUp(user: User) {
@@ -95,12 +74,19 @@ export class AuthService {
   }
 
   logout() {
-    this.token = null;
     this.isLoggedIn = false;
     firebase.auth().signOut();
   }
 
   isAuth() {
     return this.isLoggedIn;
+  }
+
+  refresh(){
+    let user = firebase.auth().currentUser;
+    if(user){
+      this.loggedUser = user;
+      this.isLoggedIn = true;
+    }
   }
 }
