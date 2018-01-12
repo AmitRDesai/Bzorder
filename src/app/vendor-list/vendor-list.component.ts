@@ -25,13 +25,4 @@ export class VendorListComponent implements OnInit {
       this.vendors = vendors;
     })
   }
-
-  onSelect(vendorId){
-    console.log(vendorId);
-    this.router.navigate(['vendor-detail'],{
-      queryParams : {
-        'vendor': vendorId
-      }
-    });//,this.vendors[vendorId].name, vendorId]);
-  }
 }
