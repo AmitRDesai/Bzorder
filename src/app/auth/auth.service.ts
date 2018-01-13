@@ -60,6 +60,7 @@ export class AuthService {
   verifyCode(code) {
     this.confirmation.confirm(code).then(() => {
           this.core.setLoading(false);
+          this.router.navigate(['home']);
         }).catch(err => {
           console.log(err);
           this.core.setLoading(false);
