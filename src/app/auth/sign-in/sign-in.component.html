@@ -9,7 +9,7 @@
         <form>
           <div class="form-group input-group">
             <span class="input-group-addon">
-              <i class="glyphicon glyphicon-phone"></i>
+              <i class="glyphicon glyphicon-earphone"></i>
             </span>
             <input class="form-control" type="text" [disabled]="state == 1" [(ngModel)]="phone" name='email' placeholder="phone" required/>
           </div>
@@ -20,7 +20,7 @@
             <input class="form-control" type="text" [(ngModel)]="code" name='password' placeholder="OTP" required/>
           </div>
           <div class="form-group">
-            <button type="submit" id="sign-in-button" (click)="onSend()" class="btn btn-primary btn-block">Verify</button>
+            <button type="submit" id="sign-in-button" (click)="onSend()" class="btn btn-primary btn-block">Submit</button>
             <button type="submit" *ngIf="state != 0" (click)="code = ''; state = 0" class="btn btn-default btn-block">Re-sent</button>
           </div>
           <div class="form-group text-center">

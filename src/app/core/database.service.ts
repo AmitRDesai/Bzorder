@@ -54,6 +54,15 @@ export class DatabaseService {
       });
   }
 
+  getVendorById(vendorId) {
+    this.core.setLoading(true);
+    return this.vendorsRef.child(vendorId)
+      .once('value').then((vendor) => {
+        this.core.setLoading(false);
+        return vendor.val();
+      });
+  }
+
   getUserById(uid: string) {
     this.core.setLoading(true);
     return this.usersRef.child(uid).once('value').then((user) => {
@@ -63,7 +72,7 @@ export class DatabaseService {
   }
 
   getAllCategories() {
-    if(this.categories)
+    if (this.categories)
       return Promise.resolve(this.categories);
     this.core.setLoading(true);
     return this.categoriesRef.once('value').then((categories) => {

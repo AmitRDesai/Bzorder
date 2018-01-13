@@ -25,5 +25,4 @@ export class VendorListComponent implements OnInit {
       this.vendors = vendors;
     })
   }
-
 }
