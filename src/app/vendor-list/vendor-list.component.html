@@ -7,7 +7,7 @@
     <a class="list-group-item clearfix" style="cursor: pointer" routerLink="/vendor-detail" [queryParams]="{'vendor': vendor.id}">
       <div class="row">
         <div class="col-md-4">
-          <img [src]="'./assets/images/' + vendor.image" alt="{{ vendor.name}}" class="img-responsive" style="max-height: 200px;">
+          <img [src]="'./assets/images/' + vendor.image" alt="{{ vendor.name}}" class="img-responsive vendor">
         </div>
         <div class="col-md-8">
           <div class="vendor-details">

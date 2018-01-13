@@ -4,3 +4,7 @@
 .vendor-details{
     margin-top: 10px;
 }
+img.vendor{
+    height: 100px;
+    width: 100%;
+}
