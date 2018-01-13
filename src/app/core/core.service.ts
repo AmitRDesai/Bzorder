@@ -28,8 +28,8 @@ export class CoreService {
     this.itemCount.next(this.cartItems.length);
   }
 
-  getCartItems(){
-    return this.cartItems.slice();
+  getCartItems(refrence?: boolean){
+    return refrence ? this.cartItems : this.cartItems.slice();
   }
 
 }

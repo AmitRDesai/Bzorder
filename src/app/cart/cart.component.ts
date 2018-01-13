@@ -15,7 +15,7 @@ export class CartComponent implements OnInit {
     private data: DatabaseService) { }
 
   ngOnInit() {
-    this.items = this.core.getCartItems();
+    this.items = this.core.getCartItems(true);
     for(let item of this.items){
       item['quantity'] = 1;
     }
