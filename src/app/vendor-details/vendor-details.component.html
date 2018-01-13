@@ -1,9 +1,9 @@
-<div *ngIf="vendor" class="row">
+<div *ngIf="vendor">
   <div class="row">
-    <div class="col-md-3">
-      <img class="img-responsive pull-left" [src]="'./assets/images/' + vendor?.image" alt="{{ vendor?.name}}" style="height: 250px">
+    <div class="col-md-4">
+      <img class="img-responsive vendor" [src]="'./assets/images/' + vendor?.image" alt="{{ vendor?.name}}">
     </div>
-    <div class="col-md-9" style="margin-top: 20px;">
+    <div class="col-md-8" style="margin-top: 20px;">
       <h3 class="list-group-item-heading">{{ vendor?.name }}</h3>
       <p class="list-group-item-text">{{ vendor?.description }}</p>
     </div>
@@ -12,10 +12,10 @@
   <div>
     <div class="row">
       <div class="col-md-10 col-sm-8">
-        <h3 style="text-align:center">Items</h3>
+        <h3 style="text-align:center; margin-top: 0px">Items</h3>
       </div>
-      <div class="col-md-2 col-sm-4">
-        <a class="btn btn-primary" routerLink="/cart">
+      <div class="col-md-2 col-sm-4 text-center" routerLink="/cart">
+        <a class="btn btn-primary" style="width:100%">
           <i class="glyphicon glyphicon-shopping-cart"></i> Cart
           <i class="badge"> {{cartItems.length}}</i>
         </a>
@@ -27,7 +27,7 @@
     <div class="col-md-3 md-sm-2" *ngFor="let item of items | array">
       <a class="list-group-item item" style="cursor: pointer">
         <div>
-          <img [src]="'./assets/images/' + item.image" alt="{{ item.name}}" class="img-responsive" style="max-width: 180px; max-height: 250px;margin:auto">
+          <img [src]="'./assets/images/' + item.image" alt="{{ item.name}}" class="img-responsive item">
         </div>
         <br>
         <div class="item-details">
