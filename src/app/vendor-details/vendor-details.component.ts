@@ -11,6 +11,7 @@ export class VendorDetailsComponent implements OnInit {
 
   vendor;
   items = [];
+  cartItems = [];
 
   constructor(private router: Router,
     private route: ActivatedRoute,
@@ -25,6 +26,15 @@ export class VendorDetailsComponent implements OnInit {
       this.data.getItemsByVendorId(vendorId).then(items => {
         this.items = items;
       })
+    }
+  }
+
+  updateCart(item){
+    const index = this.cartItems.indexOf(item.id)
+    if(index == -1){
+      this.cartItems.push(item.id);
+    }else{
+      this.cartItems.splice(index, 1);
     }
   }
 

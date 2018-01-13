@@ -8,10 +8,13 @@
         </span>
     </div>
     <hr>
-    <h3 style="text-align:center">Items</h3>
+    <div>
+        <h3 style="text-align:center">Items</h3>
+    </div>
+    <br>
     <div class="row">
       <div class="col-md-3 md-sm-2" *ngFor="let item of items | array">
-          <a class="list-group-item item" style="cursor: pointer" routerLink="/vendor-detail" [queryParams]="{'vendor': vendor.id}">
+          <a class="list-group-item item" style="cursor: pointer">
             <div>
               <img [src]="'./assets/images/' + item.image" alt="{{ item.name}}" class="img-responsive" 
                 style="max-width: 180px; max-height: 250px;margin:auto">
@@ -20,6 +23,10 @@
             <div class="item-details">
               <h4 class="list-group-item-heading">{{ item.name }}</h4>
               <p class="list-group-item-text"> $ {{ item.price }}</p>
+              <button class="btn" [ngClass]="cartItems.indexOf(item.id) != -1 ? 'btn-danger' : 'btn-success'"
+                (click)="updateCart(item)">
+                {{ cartItems.indexOf(item.id) != -1 ? 'Remove from Cart' : 'Add to Cart' }}
+              </button>
             </div>
           </a>
       </div>
