@@ -22,6 +22,7 @@ import { UserService } from './auth/user.service';
 import { SingUpComponent } from './auth/sing-up/sing-up.component';
 import { VendorListComponent } from './vendor-list/vendor-list.component';
 import { VendorDetailsComponent } from './vendor-details/vendor-details.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { VendorDetailsComponent } from './vendor-details/vendor-details.componen
     SignInComponent,
     SingUpComponent,
     VendorListComponent,
-    VendorDetailsComponent
+    VendorDetailsComponent,
+    MyProfileComponent
   ],
   imports: [
     BrowserModule,

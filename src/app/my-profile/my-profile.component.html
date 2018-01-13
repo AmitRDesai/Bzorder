@@ -1,0 +1,39 @@
+<div class="container">
+    <div class=".col-xs-4 .col-md-offset-2">
+      <div class="panel panel-default panel-info Profile">
+        <div class="panel-heading"> My Profile </div>
+        <div class="panel-body">
+          <div class="form-horizontal">
+              <form>
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label">Name</label>
+                      <div class="col-sm-4">
+                          <input class="form-control" type="text" name="firstName"
+                              placeholder="Name" [(ngModel)]="auth.loggedUser.displayName" disabled>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label">Email Id</label>
+                      <div class="col-sm-4">
+                          <input class="form-control" type="text" name="lastName"
+                              placeholder="Email" [(ngModel)]="auth.loggedUser.email" disabled>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label">Mobile Number</label>
+                      <div class="col-sm-4">
+                          <input class="form-control" type="text" name="email"
+                              placeholder="Mobile Number" [(ngModel)]="auth.loggedUser.phoneNumber" disabled>
+                      </div>
+                  </div>
+                  
+              </form>
+            </div>  <!-- end form-horizontal -->
+        </div> <!-- end panel-body -->
+  
+      </div> <!-- end panel -->
+      
+  
+    </div> <!-- end size -->
+  </div> <!-- end container-fluid -->
+  

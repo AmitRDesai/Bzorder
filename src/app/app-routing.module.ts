@@ -6,6 +6,7 @@ import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { SingUpComponent } from './auth/sing-up/sing-up.component';
 import { VendorListComponent } from './vendor-list/vendor-list.component';
 import { VendorDetailsComponent } from './vendor-details/vendor-details.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -17,7 +18,7 @@ const routes: Routes = [
   { path: 'about-us', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'partner-with-us', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'support', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'my-profile', component: HomeComponent, canActivate: [AuthGuard] }
+  { path: 'my-profile', component: MyProfileComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

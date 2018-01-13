@@ -15,7 +15,8 @@ export class AppComponent implements OnInit, DoCheck{
   loading = true;
 
   constructor(public auth: AuthService, private data: DatabaseService,
-    public core:CoreService){}
+    public core:CoreService){
+    }
 
   ngOnInit(){
 
