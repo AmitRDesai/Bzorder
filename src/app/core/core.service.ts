@@ -4,8 +4,9 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class CoreService {
 
-  loading = new Subject<boolean>();
-  cartItems = [];
+  public loading = new Subject<boolean>();
+  private cartItems = [];
+  public itemCount = new Subject<number>();
   constructor() { }
 
   setLoading(loading: boolean){
@@ -14,14 +15,21 @@ export class CoreService {
 
   clearCart(){
     this.cartItems = [];
+    this.itemCount.next(0);
   }
   
   pushItem(item){
     this.cartItems.push(item);
+    this.itemCount.next(this.cartItems.length);
   }
 
   removeItem(index){
     this.cartItems.splice(index, 1);
+    this.itemCount.next(this.cartItems.length);
+  }
+
+  getCartItems(){
+    return this.cartItems.slice();
   }
 
 }

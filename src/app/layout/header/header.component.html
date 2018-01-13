@@ -23,7 +23,7 @@
                     <li><a (click)="onLoggedout()">Logout</a></li>
                 </ul>
             </li>
-            <li><a ><img src="../../../assets/images/shopping-cart.png" style="height:30px;width:30px"/></a></li>
+            <li><a routerLink="/cart" style="padding: 10px"><img src="../../../assets/images/shopping-cart.png" style="height:30px;width:30px"/><sup *ngIf="count > 0"><i class="badge">{{count}}</i></sup></a></li>
         </ul>
         </div>
     </div>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as firebase from 'firebase';
 import { CoreService } from './core.service';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class DatabaseService {
@@ -11,6 +12,7 @@ export class DatabaseService {
   private vendorsRef: firebase.database.Reference;
   private usersRef: firebase.database.Reference;
   private categoriesRef: firebase.database.Reference;
+  private orderRef: firebase.database.Reference;
 
   private categories;
 
@@ -24,6 +26,7 @@ export class DatabaseService {
     this.vendorsRef = this.rootRef.child('vendors');
     this.usersRef = this.rootRef.child('users');
     this.categoriesRef = this.rootRef.child('categories');
+    this.orderRef = this.rootRef.child('orders');
     this.getVendorsByCategoryId(1);
     this.getItemsByVendorId('-L2aHUROXKhizmimuwaD')
   }
@@ -80,5 +83,23 @@ export class DatabaseService {
       this.categories = categories.val();
       return categories.val();
     });
+  }
+
+  saveOrder(items){
+    let order = {
+      'user_id': firebase.auth().currentUser.uid
+    };
+    
+    order['items'] = [];
+    for(let item of items)
+      order['items'].push({
+        'id': item.id,
+        'quantity': item.quantity
+      });
+
+    this.core.setLoading(true);
+    this.orderRef.push(order).then(() => {
+      this.core.setLoading(false);
+    })
   }
 }

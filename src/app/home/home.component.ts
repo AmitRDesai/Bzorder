@@ -41,10 +41,5 @@ export class HomeComponent implements OnInit {
       this.toast.error('Home', 'Place must be of hyderabad only.');
     }
   }
-
-  onSelect(i){
-    console.log(i);
-    this.router.navigate(['vendor', i]);
-  }
-
+  
 }

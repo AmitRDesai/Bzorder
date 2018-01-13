@@ -24,7 +24,8 @@ export class AuthService {
         this.loggedUser = user;
         if (user.displayName){
           this.isLoggedIn = true;
-          // this.router.navigate(['home']);
+          if(this.router.url === '/login' || this.router.url === '/sign-up')
+            this.router.navigate(['home']);
         }else{
           this.router.navigate(['sign-up']);
         }

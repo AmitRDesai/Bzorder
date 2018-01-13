@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
+import { CoreService } from '../../core/core.service';
 
 @Component({
   selector: 'app-header',
@@ -9,9 +10,14 @@ import { AuthService } from '../../auth/auth.service';
 })
 export class HeaderComponent implements OnInit {
   pushRightClass: string = 'push-right';
-  constructor(public auth: AuthService,public router: Router) { }
+  count = 0;
+  constructor(public auth: AuthService,public router: Router,
+    private core: CoreService) { }
 
   ngOnInit() {
+    this.core.itemCount.subscribe((count)=>{
+      this.count = count;
+    })
   }
   
   onLoggedout(){

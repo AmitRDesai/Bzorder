@@ -1,4 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { AuthService } from '../auth.service';
 import { CoreService } from '../../core/core.service';
 
@@ -14,9 +16,11 @@ export class SignInComponent implements OnInit, AfterViewInit {
   state: number = 0;
 
   constructor(private auth: AuthService,
-    private core: CoreService) { }
+    private core: CoreService,
+    private router: Router) { }
 
   ngOnInit() {
+    
   }
 
   ngAfterViewInit() {

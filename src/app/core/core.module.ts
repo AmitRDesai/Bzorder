@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { DatabaseService } from './database.service';
-import { DropDownDirective } from './drop-down.directive';
 import { CoreService } from './core.service';
 import { ArrayPipe } from './array.pipe';
 
@@ -12,8 +11,8 @@ import { ArrayPipe } from './array.pipe';
     CommonModule,
     HttpClientModule
   ],
-  declarations: [DropDownDirective, ArrayPipe],
+  declarations: [ArrayPipe],
   providers: [DatabaseService, CoreService],
-  exports:[DropDownDirective, ArrayPipe]
+  exports:[ArrayPipe]
 })
 export class CoreModule { }

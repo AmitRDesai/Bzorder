@@ -4,3 +4,8 @@ nav{
 a{
     cursor: pointer;
 }
+@media screen and (max-width: 720px){
+    #myNavbar {
+        background-color: #101010;
+    }
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CoreService } from '../core/core.service';
+import { DatabaseService } from '../core/database.service';
 
 @Component({
   selector: 'app-cart',
@@ -10,10 +11,11 @@ export class CartComponent implements OnInit {
 
   items = [];
 
-  constructor(private core: CoreService) { }
+  constructor(private core: CoreService,
+    private data: DatabaseService) { }
 
   ngOnInit() {
-    this.items = this.core.cartItems;
+    this.items = this.core.getCartItems();
     for(let item of this.items){
       item['quantity'] = 1;
     }
@@ -29,6 +31,10 @@ export class CartComponent implements OnInit {
 
   onRemove(index){
     this.core.removeItem(index);
+  }
+
+  placeOrder(){
+    this.data.saveOrder(this.items);
   }
 
 }

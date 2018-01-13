@@ -1,21 +1,23 @@
 <div class="row">
-  <h3> {{ category }}</h3>
-  <hr>
-</div>
-<div class="row">
-  <div class="col-lg-6 col-md-6 col-sm-12 vendor" *ngFor="let vendor of vendors | array">
-    <a class="list-group-item clearfix" style="cursor: pointer" routerLink="/vendor-detail" [queryParams]="{'vendor': vendor.id}">
-      <div class="row">
-        <div class="col-md-4">
-          <img [src]="'./assets/images/' + vendor.image" alt="{{ vendor.name}}" class="img-responsive vendor">
-        </div>
-        <div class="col-md-8">
-          <div class="vendor-details">
-            <h4 class="list-group-item-heading">{{ vendor.name }}</h4>
-            <p class="list-group-item-text">{{ vendor.description }}</p>
+  <div class="row">
+    <h3> {{ category }}</h3>
+    <hr>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12 vendor" *ngFor="let vendor of vendors | array">
+      <a class="list-group-item clearfix" style="cursor: pointer" routerLink="/vendor-detail" [queryParams]="{'vendor': vendor.id}">
+        <div class="row">
+          <div class="col-md-4">
+            <img [src]="'./assets/images/' + vendor.image" alt="{{ vendor.name}}" class="img-responsive vendor">
+          </div>
+          <div class="col-md-8">
+            <div class="vendor-details">
+              <h4 class="list-group-item-heading">{{ vendor.name }}</h4>
+              <p class="list-group-item-text">{{ vendor.description }}</p>
+            </div>
           </div>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
 </div>

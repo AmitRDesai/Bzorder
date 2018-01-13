@@ -29,15 +29,18 @@ export class VendorDetailsComponent implements OnInit {
         this.items = items;
       })
     }
-    this.core.clearCart();
+    for (let item of this.core.getCartItems()) {
+      this.cartItems.push(item.id);
+    }
+    // this.core.clearCart();
   }
 
-  updateCart(item){
+  updateCart(item) {
     const index = this.cartItems.indexOf(item.id)
-    if(index == -1){
+    if (index == -1) {
       this.cartItems.push(item.id);
       this.core.pushItem(item)
-    }else{
+    } else {
       this.cartItems.splice(index, 1);
       this.core.removeItem(index);
     }
