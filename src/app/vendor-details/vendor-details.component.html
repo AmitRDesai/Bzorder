@@ -1,6 +1,27 @@
-<pre>
-  {{ vendor | json }}
-</pre>
-<pre>
-  {{ items | json }}
-</pre>
+<div *ngIf="vendor" class="row">
+    <div class="row clearfix">
+        <img class="img-responsive pull-left" [src]="'./assets/images/' + vendor?.image"
+          alt="{{ vendor?.name}}" style="max-width: 250px; max-height: 250px; margin-right:20px">
+        <span class="vendor-details">
+            <h4 class="list-group-item-heading">{{ vendor?.name }}</h4>
+            <p class="list-group-item-text">{{ vendor?.description }}</p>
+        </span>
+    </div>
+    <hr>
+    <h3 style="text-align:center">Items</h3>
+    <div class="row">
+      <div class="col-md-4 md-sm-2" *ngFor="let item of items | array">
+          <a class="list-group-item item" style="cursor: pointer" routerLink="/vendor-detail" [queryParams]="{'vendor': vendor.id}">
+            <div>
+              <img [src]="'./assets/images/' + item.image" alt="{{ item.name}}" class="img-responsive" 
+                style="max-width: 180px; max-height: 250px;margin:auto">
+            </div>
+            <br>
+            <div class="item-details">
+              <h4 class="list-group-item-heading">{{ item.name }}</h4>
+              <p class="list-group-item-text"> $ {{ item.price }}</p>
+            </div>
+          </a>
+      </div>
+    </div>
+</div>

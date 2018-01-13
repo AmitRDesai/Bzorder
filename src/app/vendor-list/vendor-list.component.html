@@ -6,9 +6,9 @@
   <div class="col-lg-6 col-md-6 col-sm-12 vendor" *ngFor="let vendor of vendors | array">
     <a class="list-group-item clearfix" style="cursor: pointer" routerLink="/vendor-detail" [queryParams]="{'vendor': vendor.id}">
       <span class="pull-left">
-        <img [src]="'./assets/images/' + vendor.image" alt="{{ vendor.name}}" class="img-responsive" style="max-height: 100px;">
+        <img [src]="'./assets/images/' + vendor.image" alt="{{ vendor.name}}" class="img-responsive" style="max-width: 100px; max-height: 100px;margin-right:10px">
       </span>
-      <div>
+      <div class="vendor-details">
         <h4 class="list-group-item-heading">{{ vendor.name }}</h4>
         <p class="list-group-item-text">{{ vendor.description }}</p>
       </div>
