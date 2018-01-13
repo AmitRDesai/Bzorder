@@ -7,6 +7,7 @@ import { SingUpComponent } from './auth/sing-up/sing-up.component';
 import { VendorListComponent } from './vendor-list/vendor-list.component';
 import { VendorDetailsComponent } from './vendor-details/vendor-details.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'vendor/:catogry-id', component: VendorListComponent, canActivate: [AuthGuard] },
   { path: 'vendor-detail', component: VendorDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
   { path: 'about-us', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'partner-with-us', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'support', component: HomeComponent, canActivate: [AuthGuard] },

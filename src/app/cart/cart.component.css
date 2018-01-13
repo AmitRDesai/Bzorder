@@ -1,0 +1,13 @@
+.list-group-item-heading {
+    margin-top: 20px;
+}
+i.glyphicon {
+    cursor: pointer;
+}
+input.form-control {
+    display: inline-block;
+    width: 75px;
+}
+.item{
+    margin-bottom: 20px;
+}

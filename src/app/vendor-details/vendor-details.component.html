@@ -1,44 +1,43 @@
 <div *ngIf="vendor" class="row">
-    <div class="row clearfix">
-        <img class="img-responsive pull-left" [src]="'./assets/images/' + vendor?.image"
-          alt="{{ vendor?.name}}" style="max-width: 250px; max-height: 250px; margin-right:20px">
-        <span class="vendor-details">
-            <h4 class="list-group-item-heading">{{ vendor?.name }}</h4>
-            <p class="list-group-item-text">{{ vendor?.description }}</p>
-        </span>
+  <div class="row">
+    <div class="col-md-3">
+      <img class="img-responsive pull-left" [src]="'./assets/images/' + vendor?.image" alt="{{ vendor?.name}}" style="height: 250px">
     </div>
-    <hr>
-    <div>
-      <div class="row">
-        <div class="col-md-10 col-sm-8">
-            <h3 style="text-align:center">Items</h3>
-        </div> 
-        <div class="col-md-2 col-sm-4">
-            <button class="btn btn-primary">
-              <i class="glyphicon glyphicon-shopping-cart"></i> Cart 
-              <sup><i class="badge"> {{cartItems.length}}</i></sup>
-            </button>
-        </div>
-      </div>
+    <div class="col-md-9" style="margin-top: 20px;">
+      <h3 class="list-group-item-heading">{{ vendor?.name }}</h3>
+      <p class="list-group-item-text">{{ vendor?.description }}</p>
     </div>
-    <br>
+  </div>
+  <hr>
+  <div>
     <div class="row">
-      <div class="col-md-3 md-sm-2" *ngFor="let item of items | array">
-          <a class="list-group-item item" style="cursor: pointer">
-            <div>
-              <img [src]="'./assets/images/' + item.image" alt="{{ item.name}}" class="img-responsive" 
-                style="max-width: 180px; max-height: 250px;margin:auto">
-            </div>
-            <br>
-            <div class="item-details">
-              <h4 class="list-group-item-heading">{{ item.name }}</h4>
-              <p class="list-group-item-text"> $ {{ item.price }}</p>
-              <button class="btn" [ngClass]="cartItems.indexOf(item.id) != -1 ? 'btn-danger' : 'btn-success'"
-                (click)="updateCart(item)">
-                {{ cartItems.indexOf(item.id) != -1 ? 'Remove from Cart' : 'Add to Cart' }}
-              </button>
-            </div>
-          </a>
+      <div class="col-md-10 col-sm-8">
+        <h3 style="text-align:center">Items</h3>
+      </div>
+      <div class="col-md-2 col-sm-4">
+        <a class="btn btn-primary" routerLink="/cart">
+          <i class="glyphicon glyphicon-shopping-cart"></i> Cart
+          <i class="badge"> {{cartItems.length}}</i>
+        </a>
       </div>
     </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-3 md-sm-2" *ngFor="let item of items | array">
+      <a class="list-group-item item" style="cursor: pointer">
+        <div>
+          <img [src]="'./assets/images/' + item.image" alt="{{ item.name}}" class="img-responsive" style="max-width: 180px; max-height: 250px;margin:auto">
+        </div>
+        <br>
+        <div class="item-details">
+          <h4 class="list-group-item-heading">{{ item.name }}</h4>
+          <p class="list-group-item-text" style="margin-bottom: 5px"> ₹ {{ item.price }}</p>
+          <button class="btn" [ngClass]="cartItems.indexOf(item.id) != -1 ? 'btn-danger' : 'btn-success'" (click)="updateCart(item)">
+            {{ cartItems.indexOf(item.id) != -1 ? 'Remove from Cart' : 'Add to Cart' }}
+          </button>
+        </div>
+      </a>
+    </div>
+  </div>
 </div>

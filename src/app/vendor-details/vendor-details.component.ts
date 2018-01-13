@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DatabaseService } from '../core/database.service';
+import { CoreService } from '../core/core.service';
 
 @Component({
   selector: 'app-vendor-details',
@@ -15,7 +16,8 @@ export class VendorDetailsComponent implements OnInit {
 
   constructor(private router: Router,
     private route: ActivatedRoute,
-    private data: DatabaseService) { }
+    private data: DatabaseService,
+    private core: CoreService) { }
 
   ngOnInit() {
     let vendorId = this.route.snapshot.queryParams['vendor'];
@@ -27,14 +29,17 @@ export class VendorDetailsComponent implements OnInit {
         this.items = items;
       })
     }
+    this.core.clearCart();
   }
 
   updateCart(item){
     const index = this.cartItems.indexOf(item.id)
     if(index == -1){
       this.cartItems.push(item.id);
+      this.core.pushItem(item)
     }else{
       this.cartItems.splice(index, 1);
+      this.core.removeItem(index);
     }
   }
 
