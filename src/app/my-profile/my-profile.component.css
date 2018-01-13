@@ -1,0 +1,17 @@
+.orderIcon{
+    font-size:20px; 
+    color: #2874f0;
+}
+
+.myOrder{
+    width: 80%;
+}
+.myOrder > a{
+    color: #878787;
+    text-decoration: none;
+    font-size: 15px
+}
+
+.myOrder > a:hover{
+    color: #2874f0;
+}

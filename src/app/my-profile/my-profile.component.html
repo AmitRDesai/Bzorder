@@ -1,7 +1,28 @@
 <div class="container">
-    <div class=".col-xs-4 .col-md-offset-2">
+
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="well well-lg">
+          <img src="../../assets/images/profile-logo.svg" >
+          <label>Hello,  
+          {{ auth.loggedUser.displayName }}</label>
+        </div>
+        <div class="well well-lg col-lg-12">
+          <div class="col-lg-2 pull-left">
+            <span class="glyphicon glyphicon-briefcase orderIcon"></span>    
+          </div>
+          <div class="col-lg-6 myOrder">
+            <a style="">
+              My Orders
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+    <div class="col-lg-9">
       <div class="panel panel-default panel-info Profile">
-        <div class="panel-heading"> My Profile </div>
+        <div class="panel-heading"> Personal Information </div>
         <div class="panel-body">
           <div class="form-horizontal">
               <form>
@@ -33,7 +54,6 @@
   
       </div> <!-- end panel -->
       
-  
     </div> <!-- end size -->
   </div> <!-- end container-fluid -->
   
