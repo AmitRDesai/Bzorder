@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { LoadingModule } from 'ngx-loading';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
