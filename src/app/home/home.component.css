@@ -15,3 +15,9 @@
 .list-group-image{
     cursor: pointer;
 }
+.div-carousel{
+    height: 350px;
+    margin-top: 5%;
+    width: 600px;
+    padding-left: 15%;
+}

@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LoadingModule } from 'ngx-loading';
 import { SimpleNotificationsModule } from 'angular2-notifications';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -11,7 +12,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
-import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from './auth/auth.service';
 import { CoreModule } from './core/core.module';
 import { AuthGuard } from './auth/auth.guard';
@@ -39,11 +40,12 @@ import { VendorListComponent } from './vendor-list/vendor-list.component';
     AppRoutingModule,
     FormsModule,
     Ng4GeoautocompleteModule.forRoot(),
-    NgbDropdownModule.forRoot(),
+    NgbModule.forRoot(),
     FormsModule,
     LoadingModule,
     CoreModule,
-    SimpleNotificationsModule.forRoot()
+    SimpleNotificationsModule.forRoot(),
+    CarouselModule.forRoot()
   ],
   providers: [AuthService, UserService],
   bootstrap: [AppComponent]
