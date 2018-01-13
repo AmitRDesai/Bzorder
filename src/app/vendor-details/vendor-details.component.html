@@ -10,7 +10,7 @@
     <hr>
     <h3 style="text-align:center">Items</h3>
     <div class="row">
-      <div class="col-md-4 md-sm-2" *ngFor="let item of items | array">
+      <div class="col-md-3 md-sm-2" *ngFor="let item of items | array">
           <a class="list-group-item item" style="cursor: pointer" routerLink="/vendor-detail" [queryParams]="{'vendor': vendor.id}">
             <div>
               <img [src]="'./assets/images/' + item.image" alt="{{ item.name}}" class="img-responsive" 
