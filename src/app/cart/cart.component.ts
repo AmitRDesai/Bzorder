@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { DatabaseService } from '../core/database.service';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-cart',
@@ -12,6 +13,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 })
 export class CartComponent implements OnInit {
 
+  @ViewChild("paymentModal") paymentModal: ModalDirective;
   items = [];
   state = 0;
 
@@ -47,13 +49,19 @@ export class CartComponent implements OnInit {
       });
     }
     else if(this.state == 1){
-      this.data.saveOrder(this.items, this.cart.address).then(()=>{
-        this.router.navigate(['cart','order-placed']);
-      });
-      this.cart.clearCart();
+      this.paymentModal.show();
     }else{
 
     }
+  }
+  makePayment(){
+    this.paymentModal.hide();
+    this.data.saveOrder(this.items, this.cart.address).then(()=>{
+      this.router.navigate(['cart','order-placed']);
+    });
+    this.cart.clearCart();
+  }
+
   }
 
 }
