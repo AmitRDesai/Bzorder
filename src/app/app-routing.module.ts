@@ -11,6 +11,8 @@ import { CartComponent } from './cart/cart.component';
 import { CartItemsComponent } from './cart/cart-items/cart-items.component';
 import { CheckoutComponent } from './cart/checkout/checkout.component';
 import { OrderPlacedComponent } from './cart/order-placed/order-placed.component';
+import { UserInfoComponent } from './my-profile/user-info/user-info.component';
+import { OrderListComponent } from './my-profile/order-list/order-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -29,7 +31,12 @@ const routes: Routes = [
   { path: 'about-us', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'partner-with-us', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'support', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'my-profile', component: MyProfileComponent, canActivate: [AuthGuard] }
+  {
+    path: 'my-profile', component: MyProfileComponent, children: [
+      { path: '', component: UserInfoComponent },
+      { path: 'order-list', component: OrderListComponent }
+    ]
+  }
 ];
 
 @NgModule({

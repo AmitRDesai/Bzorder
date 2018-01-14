@@ -12,7 +12,7 @@
             <span class="glyphicon glyphicon-briefcase orderIcon"></span>    
           </div>
           <div class="col-lg-6 myOrder">
-            <a style="">
+            <a routerLink="/my-profile/order-list">
               My Orders
             </a>
           </div>
@@ -21,39 +21,7 @@
 
 
     <div class="col-lg-9">
-      <div class="panel panel-default panel-info Profile">
-        <div class="panel-heading"> Personal Information </div>
-        <div class="panel-body">
-          <div class="form-horizontal">
-              <form>
-                  <div class="form-group">
-                      <label class="col-sm-2 control-label">Name</label>
-                      <div class="col-sm-4">
-                          <input class="form-control" type="text" name="firstName"
-                              placeholder="Name" [(ngModel)]="auth.loggedUser.displayName" disabled>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="col-sm-2 control-label">Email Id</label>
-                      <div class="col-sm-4">
-                          <input class="form-control" type="text" name="lastName"
-                              placeholder="Email" [(ngModel)]="auth.loggedUser.email" disabled>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label class="col-sm-2 control-label">Mobile Number</label>
-                      <div class="col-sm-4">
-                          <input class="form-control" type="text" name="email"
-                              placeholder="Mobile Number" [(ngModel)]="auth.loggedUser.phoneNumber" disabled>
-                      </div>
-                  </div>
-                  
-              </form>
-            </div>  <!-- end form-horizontal -->
-        </div> <!-- end panel-body -->
-  
-      </div> <!-- end panel -->
-      
+      <router-outlet></router-outlet>
     </div> <!-- end size -->
   </div> <!-- end container-fluid -->
   

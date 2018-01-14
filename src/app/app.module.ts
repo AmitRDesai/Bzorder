@@ -28,6 +28,8 @@ import { CheckoutComponent } from './cart/checkout/checkout.component';
 import { CartItemsComponent } from './cart/cart-items/cart-items.component';
 import { OrderPlacedComponent } from './cart/order-placed/order-placed.component';
 import { Globals } from './utils/globals';
+import { UserInfoComponent } from './my-profile/user-info/user-info.component';
+import { OrderListComponent } from './my-profile/order-list/order-list.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { Globals } from './utils/globals';
     CartComponent,
     CheckoutComponent,
     CartItemsComponent,
-    OrderPlacedComponent
+    OrderPlacedComponent,
+    UserInfoComponent,
+    OrderListComponent
   ],
   imports: [
     BrowserModule,

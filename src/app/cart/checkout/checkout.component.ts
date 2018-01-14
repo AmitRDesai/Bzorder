@@ -21,7 +21,6 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
       this.cart.address = value;
     });
     this.form.statusChanges.subscribe(valid => {
-      console.log(valid);
       this.cart.isValidAddress = valid;
     })
   }

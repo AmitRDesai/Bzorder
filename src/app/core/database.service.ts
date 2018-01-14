@@ -86,7 +86,12 @@ export class DatabaseService {
 
   saveOrder(items, address) {
     const uid = firebase.auth().currentUser.uid;
-    let order = { 'items': [], 'address': address };
+    let order = {
+      'items': [],
+      'address': address,
+      'date': new Date().toDateString(),
+      'status': 'placed'
+    };
     for (let item of items)
       order['items'].push({
         'id': item.id,
@@ -109,8 +114,7 @@ export class DatabaseService {
 
   saveCart(cartItem) {
     const uid = firebase.auth().currentUser.uid;
-    return this.usersRef.child(uid).child('cart').set(cartItem).then((data) => {
-      return data.val();
+    return this.usersRef.child(uid).child('cart').set(cartItem).then(() => {
     }).catch((err) => {
       console.log(err);
     })
@@ -122,6 +126,15 @@ export class DatabaseService {
       return data.val();
     }).catch((err) => {
       console.log(err);
+    })
+  }
+
+  getOrders(){
+    const uid = firebase.auth().currentUser.uid;
+    this.core.setLoading(true);
+    return this.usersRef.child(uid).child('orders').once('value').then((data)=>{
+      this.core.setLoading(false);
+      return data.val();
     })
   }
 }
