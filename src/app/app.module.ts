@@ -24,6 +24,7 @@ import { VendorListComponent } from './vendor-list/vendor-list.component';
 import { VendorDetailsComponent } from './vendor-details/vendor-details.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { CartComponent } from './cart/cart.component';
+import { Globals } from './utils/globals';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { CartComponent } from './cart/cart.component';
     SimpleNotificationsModule.forRoot(),
     CarouselModule.forRoot()
   ],
-  providers: [AuthService, UserService],
+  providers: [AuthService, UserService, Globals],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
