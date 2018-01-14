@@ -3,6 +3,7 @@ import { DatabaseService } from '../core/database.service';
 import { ToastNotificationComponent } from '../toast-notification/toast-notification.component'
 import { CoreService } from '../core/core.service';
 import { Router } from '@angular/router';
+import { Globals } from '../utils/globals';
 
 @Component({
   selector: 'app-home',
@@ -13,17 +14,17 @@ export class HomeComponent implements OnInit {
   public settingForHyd: any;
   @ViewChild("toast") toast: ToastNotificationComponent;
   categories: string[];
-  insertedPlace: string = "";
 
   constructor(private data: DatabaseService,
     private core: CoreService,
-    private router: Router) {
+    private router: Router,
+    private globals: Globals) {
     this.settingForHyd = {
       showRecentSearch: false,
       geoCountryRestriction: ['in'],
       geoLocation: [17.387140, 78.491684],
       geoRadius: 20,
-      inputString: ''
+      inputString: globals.insertedPlace
     }
   }
 
@@ -37,7 +38,8 @@ export class HomeComponent implements OnInit {
   }
 
   setRoute(i: number){
-    if(this.insertedPlace == ''){
+    if(this.globals.insertedPlace == ''){
+      this.toast.info("Home","Enter location to proceed");
       this.setFocus();
     } else{
       this.router.navigate(['/vendor', i ]);
@@ -46,7 +48,7 @@ export class HomeComponent implements OnInit {
 
   autoCompleteCallback1(selectedData: any) {
     //console.log(document.getElementById('search_places').Value);
-    this.insertedPlace = selectedData.data.formatted_address;
+    this.globals.insertedPlace = selectedData.data.formatted_address;
     let arr: string[] = selectedData.data.formatted_address.split(",");
     let city: string = arr[arr.length - 2].split(" ")[1];
     console.log(city.toLowerCase());

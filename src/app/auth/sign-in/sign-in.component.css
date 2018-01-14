@@ -17,6 +17,8 @@ body{
     margin: auto;
     position: absolute;
     left: 0; right: 0;
+    background-color: lightgoldenrodyellow;
+    border-radius: 40px;
   }
   
   .Absolute-Center.is-Responsive {

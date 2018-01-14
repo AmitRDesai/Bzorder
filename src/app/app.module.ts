@@ -27,6 +27,7 @@ import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './cart/checkout/checkout.component';
 import { CartItemsComponent } from './cart/cart-items/cart-items.component';
 import { OrderPlacedComponent } from './cart/order-placed/order-placed.component';
+import { Globals } from './utils/globals';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,7 @@ import { OrderPlacedComponent } from './cart/order-placed/order-placed.component
     SimpleNotificationsModule.forRoot(),
     CarouselModule.forRoot()
   ],
-  providers: [AuthService, UserService],
+  providers: [AuthService, UserService, Globals],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
