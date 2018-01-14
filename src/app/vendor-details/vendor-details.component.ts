@@ -13,6 +13,7 @@ export class VendorDetailsComponent implements OnInit {
   vendor;
   items = [];
   cartItems = [];
+  vendorId;
 
   constructor(private router: Router,
     private route: ActivatedRoute,
@@ -20,16 +21,17 @@ export class VendorDetailsComponent implements OnInit {
     private cart: CartService) { }
 
   ngOnInit() {
-    let vendorId = this.route.snapshot.queryParams['vendor'];
-    if (vendorId) {
-      this.data.getVendorById(vendorId).then((vendor) => {
+    this.vendorId = this.route.snapshot.queryParams['vendor'];
+    if (this.vendorId) {
+      this.data.getVendorById(this.vendorId).then((vendor) => {
         this.vendor = vendor;
       })
-      this.data.getItemsByVendorId(vendorId).then(items => {
+      this.data.getItemsByVendorId(this.vendorId).then(items => {
         this.items = items;
       })
     }
-    for (let item of this.cart.getCartItems()) {
+    let items = this.cart.getCartItems();
+    for (let item of items[this.vendorId]) {
       this.cartItems.push(item.id);
     }
     this.cart.cartItemsChanged.subscribe(items=>{
@@ -37,18 +39,16 @@ export class VendorDetailsComponent implements OnInit {
         this.cartItems.push(item.id);
       }
     });
-    
-    // this.core.clearCart();
   }
 
   updateCart(item) {
     const index = this.cartItems.indexOf(item.id)
     if (index == -1) {
       this.cartItems.push(item.id);
-      this.cart.pushItem(item)
+      this.cart.pushItem(item,this.vendorId);
     } else {
       this.cartItems.splice(index, 1);
-      this.cart.removeItem(index);
+      this.cart.removeItem(index,this.vendorId);
     }
   }
 

@@ -1,17 +1,19 @@
-<div class="row list-group-item item" *ngFor="let item of items; let i = index">
-  <div class="col-md-4">
-    <img [src]="'./assets/images/' + item.image" alt="{{ item.name}}" class="img-responsive item">
-  </div>
-  <div class="col-md-8">
-    <h4 class="list-group-item-heading">{{ item.name }}
-      <span class="pull-right"> ₹ {{ item.price * item.quantity }}</span>
-    </h4>
-    <p style="margin-top: 10px">
-      Quantity:
-      <input type="number" min="1" size="2" class="form-control" [(ngModel)]="item.quantity">
-    </p>
-    <br>
-    <br>
-    <button class="btn btn-danger pull-right" (click)="onRemove(i)"> Remove </button>
+<div class="col-md-12" *ngFor="let vendorId of items | keys">
+  <div class="row list-group-item item" *ngFor="let item of items[vendorId]; let i = index">
+    <div class="col-md-4">
+      <img [src]="'./assets/images/' + item.image" alt="{{ item.name}}" class="img-responsive item">
+    </div>
+    <div class="col-md-8">
+      <h4 class="list-group-item-heading">{{ item.name }}
+        <span class="pull-right"> ₹ {{ item.price * item.quantity }}</span>
+      </h4>
+      <p style="margin-top: 10px">
+        Quantity:
+        <input type="number" min="1" size="2" class="form-control" [(ngModel)]="item.quantity">
+      </p>
+      <br>
+      <br>
+      <button class="btn btn-danger pull-right" (click)="onRemove(i, vendorId)"> Remove </button>
+    </div>
   </div>
 </div>

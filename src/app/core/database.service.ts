@@ -14,6 +14,7 @@ export class DatabaseService {
   private categoriesRef: firebase.database.Reference;
 
   private categories;
+  private vendors;
 
   constructor(private http: HttpClient,
     private core: CoreService) {
@@ -84,19 +85,25 @@ export class DatabaseService {
     });
   }
 
+  getAllVendors() {
+    if (this.vendors)
+      return Promise.resolve(this.vendors);
+    this.core.setLoading(true);
+    return this.vendorsRef.once('value').then((vendors) => {
+      this.core.setLoading(false);
+      this.vendors = vendors.val();
+      return vendors.val();
+    });
+  }
+
   saveOrder(items, address) {
     const uid = firebase.auth().currentUser.uid;
     let order = {
-      'items': [],
+      'items': items,
       'address': address,
       'date': new Date().toDateString(),
       'status': 'placed'
     };
-    for (let item of items)
-      order['items'].push({
-        'id': item.id,
-        'quantity': item.quantity
-      });
     this.core.setLoading(true);
     return this.usersRef.child(uid).child('orders').push(order).then(() => {
       this.core.setLoading(false);

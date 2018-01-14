@@ -9,20 +9,20 @@ import { CartService } from '../../core/cart.service';
 })
 export class CartItemsComponent implements OnInit {
 
-  items = [];
+  items = {};
 
   constructor(private cart: CartService,
     private data: DatabaseService) { }
 
   ngOnInit() {
     this.items = this.cart.getCartItems();
-    this.cart.cartItemsChanged.subscribe((items)=>{
+    this.cart.cartItemsChanged.subscribe((items) => {
       this.items = items;
     });
   }
 
-  onRemove(index) {
-    this.cart.removeItem(index);
+  onRemove(index, vendorId) {
+    this.cart.removeItem(index, vendorId);
   }
 
 }

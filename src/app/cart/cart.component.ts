@@ -14,7 +14,8 @@ import { ModalDirective } from 'ngx-bootstrap/modal';
 export class CartComponent implements OnInit {
 
   @ViewChild("paymentModal") paymentModal: ModalDirective;
-  items = [];
+  items = {};
+  vendors;
   state = 0;
 
   constructor(public cart: CartService,
@@ -24,44 +25,51 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.items = this.cart.getCartItems();
-    this.cart.cartItemsChanged.subscribe((items)=>{
+    this.cart.cartItemsChanged.subscribe((items) => {
       this.items = items;
+    });
+    this.data.getAllVendors().then((vendors) => {
+      this.vendors = vendors;
     });
   }
 
-  getTotal() {
+  getTotal(vendorId) {
     let total = 0;
-    for (let item of this.items) {
-      total += item.price * item.quantity;
+    if (vendorId) {
+      for (let item of this.items[vendorId]) {
+        total += item.price * item.quantity;
+      }
+    }
+    else {
+      let vendorIds = Object.keys(this.items);
+      for(let vendorId of vendorIds){
+        for (let item of this.items[vendorId]) {
+          total += item.price * item.quantity;
+        }
+      }
     }
     return total;
   }
 
-  onRemove(index) {
-    this.cart.removeItem(index);
-  }
-
   placeOrder() {
-    if (this.state == 0){
+    if (this.state == 0) {
       this.state = 1;
       this.router.navigate(['checkout'], {
         relativeTo: this.route
       });
     }
-    else if(this.state == 1){
+    else if (this.state == 1) {
       this.paymentModal.show();
-    }else{
+    } else {
 
     }
   }
-  makePayment(){
+  makePayment() {
     this.paymentModal.hide();
-    this.data.saveOrder(this.items, this.cart.address).then(()=>{
-      this.router.navigate(['cart','order-placed']);
+    this.data.saveOrder(this.items, this.cart.address).then(() => {
+      this.router.navigate(['cart', 'order-placed']);
+      this.cart.clearCart();
     });
-    this.cart.clearCart();
-  }
-
   }
 
 }
