@@ -18,6 +18,9 @@ export class CartService {
     this.data.getCart().then((cartItems) => {
       this.cartItems = cartItems ? cartItems : [];
       this.itemCount = this.cartItems.length;
+      for (let item of this.cartItems) {
+        item['quantity'] = item['quantity'] ? item['quantity'] :  1;
+      }
       this.cartItemsChanged.next(this.cartItems);
     });
   }
@@ -40,10 +43,10 @@ export class CartService {
   refresh() {
     this.itemCount = this.cartItems.length;
     this.data.saveCart(this.cartItems);
-    this.cartItemsChanged.next(this.cartItems);
     for (let item of this.cartItems) {
       item['quantity'] = item['quantity'] ? item['quantity'] :  1;
     }
+    this.cartItemsChanged.next(this.cartItems);
   }
 
   getCartItems() {
