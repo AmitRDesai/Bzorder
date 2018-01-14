@@ -3,22 +3,23 @@ import * as firebase from 'firebase';
 import { AuthService } from './auth/auth.service';
 import { DatabaseService } from './core/database.service';
 import { CoreService } from './core/core.service';
+import { CartService } from './core/cart.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, DoCheck{
+export class AppComponent implements OnInit, DoCheck {
 
   height;
   loading = true;
 
   constructor(public auth: AuthService, private data: DatabaseService,
-    public core:CoreService){
-    }
+    public core: CoreService, private cart: CartService) {
+  }
 
-  ngOnInit(){
+  ngOnInit() {
 
     firebase.initializeApp({
       apiKey: "AIzaSyAK3W-9RTSSVJw579ZJaC0F7ZkxJZo7x2Y",
@@ -28,16 +29,18 @@ export class AppComponent implements OnInit, DoCheck{
       storageBucket: "bzorder01.appspot.com",
       messagingSenderId: "1032338270823"
     });
-    this.auth.init();
+    this.auth.init(() => {
+      this.cart.init();
+    });
     this.data.init();
     window.onresize = this.ngDoCheck;
-    this.core.loading.subscribe((loading)=>{
-      setTimeout(()=>{this.loading = loading;}, 50);
+    this.core.loading.subscribe((loading) => {
+      setTimeout(() => { this.loading = loading; }, 50);
     })
   }
 
-  ngDoCheck(){
+  ngDoCheck() {
     this.height = window.innerHeight - 110;
   }
-  
+
 }

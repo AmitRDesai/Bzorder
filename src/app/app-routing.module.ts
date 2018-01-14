@@ -8,6 +8,9 @@ import { VendorListComponent } from './vendor-list/vendor-list.component';
 import { VendorDetailsComponent } from './vendor-details/vendor-details.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { CartComponent } from './cart/cart.component';
+import { CartItemsComponent } from './cart/cart-items/cart-items.component';
+import { CheckoutComponent } from './cart/checkout/checkout.component';
+import { OrderPlacedComponent } from './cart/order-placed/order-placed.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -16,7 +19,13 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'vendor/:catogry-id', component: VendorListComponent, canActivate: [AuthGuard] },
   { path: 'vendor-detail', component: VendorDetailsComponent, canActivate: [AuthGuard] },
-  { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
+  {
+    path: 'cart', component: CartComponent, children: [
+      { path: '', component: CartItemsComponent },
+      { path: 'checkout', component: CheckoutComponent },
+      { path: 'order-placed', component: OrderPlacedComponent }
+    ]
+  },
   { path: 'about-us', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'partner-with-us', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'support', component: HomeComponent, canActivate: [AuthGuard] },

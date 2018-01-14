@@ -24,6 +24,9 @@ import { VendorListComponent } from './vendor-list/vendor-list.component';
 import { VendorDetailsComponent } from './vendor-details/vendor-details.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './cart/checkout/checkout.component';
+import { CartItemsComponent } from './cart/cart-items/cart-items.component';
+import { OrderPlacedComponent } from './cart/order-placed/order-placed.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { CartComponent } from './cart/cart.component';
     VendorListComponent,
     VendorDetailsComponent,
     MyProfileComponent,
-    CartComponent
+    CartComponent,
+    CheckoutComponent,
+    CartItemsComponent,
+    OrderPlacedComponent
   ],
   imports: [
     BrowserModule,

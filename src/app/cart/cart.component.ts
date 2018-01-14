@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { CoreService } from '../core/core.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CartService } from '../core/cart.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { DatabaseService } from '../core/database.service';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @Component({
   selector: 'app-cart',
@@ -10,31 +13,47 @@ import { DatabaseService } from '../core/database.service';
 export class CartComponent implements OnInit {
 
   items = [];
+  state = 0;
 
-  constructor(private core: CoreService,
-    private data: DatabaseService) { }
+  constructor(public cart: CartService,
+    private data: DatabaseService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.items = this.core.getCartItems(true);
-    for(let item of this.items){
-      item['quantity'] = 1;
-    }
+    this.items = this.cart.getCartItems();
+    this.cart.cartItemsChanged.subscribe((items)=>{
+      this.items = items;
+    });
   }
 
-  getTotal(){
+  getTotal() {
     let total = 0;
-    for(let item of this.items){
+    for (let item of this.items) {
       total += item.price * item.quantity;
     }
     return total;
   }
 
-  onRemove(index){
-    this.core.removeItem(index);
+  onRemove(index) {
+    this.cart.removeItem(index);
   }
 
-  placeOrder(){
-    this.data.saveOrder(this.items);
+  placeOrder() {
+    if (this.state == 0){
+      this.state = 1;
+      this.router.navigate(['checkout'], {
+        relativeTo: this.route
+      });
+    }
+    else if(this.state == 1){
+      this.data.saveOrder(this.items, this.cart.address).then(()=>{
+        this.router.navigate(['cart','order-placed']);
+      });
+      this.cart.clearCart();
+    }else{
+
+    }
   }
 
 }

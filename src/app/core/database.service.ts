@@ -12,7 +12,6 @@ export class DatabaseService {
   private vendorsRef: firebase.database.Reference;
   private usersRef: firebase.database.Reference;
   private categoriesRef: firebase.database.Reference;
-  private orderRef: firebase.database.Reference;
 
   private categories;
 
@@ -26,7 +25,7 @@ export class DatabaseService {
     this.vendorsRef = this.rootRef.child('vendors');
     this.usersRef = this.rootRef.child('users');
     this.categoriesRef = this.rootRef.child('categories');
-    this.orderRef = this.rootRef.child('orders');
+    this.usersRef = this.rootRef.child('users');
     this.getVendorsByCategoryId(1);
     this.getItemsByVendorId('-L2aHUROXKhizmimuwaD')
   }
@@ -85,21 +84,44 @@ export class DatabaseService {
     });
   }
 
-  saveOrder(items){
-    let order = {
-      'user_id': firebase.auth().currentUser.uid
-    };
-    
-    order['items'] = [];
-    for(let item of items)
+  saveOrder(items, address) {
+    const uid = firebase.auth().currentUser.uid;
+    let order = { 'items': [], 'address': address };
+    for (let item of items)
       order['items'].push({
         'id': item.id,
         'quantity': item.quantity
       });
-
     this.core.setLoading(true);
-    this.orderRef.push(order).then(() => {
+    return this.usersRef.child(uid).child('orders').push(order).then(() => {
       this.core.setLoading(false);
+    })
+  }
+
+  getUserData() {
+    const uid = firebase.auth().currentUser.uid;
+    return this.usersRef.child(uid).once('value').then((data) => {
+      return data.val();
+    }).catch((err) => {
+      console.log(err);
+    })
+  }
+
+  saveCart(cartItem) {
+    const uid = firebase.auth().currentUser.uid;
+    return this.usersRef.child(uid).child('cart').set(cartItem).then((data) => {
+      return data.val();
+    }).catch((err) => {
+      console.log(err);
+    })
+  }
+
+  getCart() {
+    const uid = firebase.auth().currentUser.uid;
+    return this.usersRef.child(uid).child('cart').once('value').then((data) => {
+      return data.val();
+    }).catch((err) => {
+      console.log(err);
     })
   }
 }

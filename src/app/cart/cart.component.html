@@ -4,33 +4,33 @@
 <hr>
 <div class="row">
   <div class="col-md-8">
-    <div class="row list-group-item item" *ngFor="let item of items; let i = index">
-      <div class="col-md-4">
-        <img [src]="'./assets/images/' + item.image" alt="{{ item.name}}" class="img-responsive item">
-      </div>
-      <div class="col-md-8">
-        <h4 class="list-group-item-heading">{{ item.name }} <span class="pull-right"> ₹ {{ item.price * item.quantity }}</span> </h4>
-        <p style="margin-top: 10px">
-          Quantity:
-          <input type="number" min="1" size="2" class="form-control" [(ngModel)]="item.quantity">
-        </p>
-        <br>
-        <br>
-        <button class="btn btn-danger pull-right" (click)="onRemove(i)"> Remove </button>
-      </div>
-    </div>
+    <router-outlet></router-outlet>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-4" *ngIf="items.length > 0">
     <div class="list-group-item">
-        <h4 class="list-group-item-heading"> Order detail</h4>
-        <hr>
-        <p> <b> Item </b>  <span class="pull-right"> <b> Price </b></span></p>
-        <p *ngFor="let item of items">{{ item.name }} <span class="pull-right"> ₹ {{ item.price * item.quantity }} </span></p>
-        <hr>
-        <p> <b>Total</b><span class="pull-right"> ₹ <b> {{ getTotal() }} </b> </span></p>
-        <div class="row" style="margin: 10px">
-            <button class="btn btn-success" style="width:100%" (click)="placeOrder()">Palce Order</button>
-        </div>
+      <h4 class="list-group-item-heading"> Order detail</h4>
+      <hr>
+      <p>
+        <b> Item </b>
+        <span class="pull-right">
+          <b> Price </b>
+        </span>
+      </p>
+      <p *ngFor="let item of items">{{ item.name }}
+        <span class="pull-right"> ₹ {{ item.price * item.quantity }} </span>
+      </p>
+      <hr>
+      <p>
+        <b>Total</b>
+        <span class="pull-right"> ₹
+          <b> {{ getTotal() }} </b>
+        </span>
+      </p>
+      <div class="row" style="margin: 10px">
+        <button class="btn btn-success" style="width:100%" (click)="placeOrder()" [disabled]="cart.isValidAddress == 'INVALID' && state == 1">
+          {{ state == 0 ? 'Continue' : 'Palce Order'}}
+        </button>
+      </div>
     </div>
   </div>
 </div>
