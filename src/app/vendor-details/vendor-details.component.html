@@ -24,18 +24,28 @@
   </div>
   <br>
   <div class="row">
-    <div class="col-md-3 md-sm-2" *ngFor="let item of items | array">
+    <div class="col-md-3 md-sm-2 form-group" *ngFor="let item of items | array">
       <a class="list-group-item item" style="cursor: pointer">
         <div>
           <img [src]="'./assets/images/' + item.image" alt="{{ item.name}}" class="img-responsive item">
         </div>
-        <br>
         <div class="item-details">
-          <h4 class="list-group-item-heading">{{ item.name }}</h4>
-          <p class="list-group-item-text" style="margin-bottom: 5px"> ₹ {{ item.price }}</p>
-          <button class="btn" [ngClass]="cartItems.indexOf(item.id) != -1 ? 'btn-danger' : 'btn-success'" (click)="updateCart(item)">
-            {{ cartItems.indexOf(item.id) != -1 ? 'Remove from Cart' : 'Add to Cart' }}
-          </button>
+          <div class="row">
+            <div class="col-md-8">
+              <h4 class="list-group-item-heading">{{ item.name }}</h4>
+            </div>
+            <div class="col-md-4 text-center">₹ {{ item.price }}</div>
+          </div>
+          <div class="row">
+            <div class="col-md-7">
+              <button class="btn" [ngClass]="cartItems.indexOf(item.id) != -1 ? 'btn-danger' : 'btn-success'" (click)="updateCart(item)">
+                {{ cartItems.indexOf(item.id) != -1 ? 'Remove from Cart' : 'Add to Cart' }}
+              </button>
+            </div>
+            <div class="col-md-5">
+              <input type="number" class="form-control" style="width:75px; display: unset" [(ngModel)]="item.quantity" placeholder="Qty"/>
+            </div>
+          </div>
         </div>
       </a>
     </div>

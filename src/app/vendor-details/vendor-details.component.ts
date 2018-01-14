@@ -31,8 +31,10 @@ export class VendorDetailsComponent implements OnInit {
       })
     }
     let items = this.cart.getCartItems();
-    for (let item of items[this.vendorId]) {
-      this.cartItems.push(item.id);
+    if(items[this.vendorId]){
+      for (let item of items[this.vendorId]) {
+        this.cartItems.push(item.id);
+      }
     }
     this.cart.cartItemsChanged.subscribe(items=>{
       for (let item of items) {

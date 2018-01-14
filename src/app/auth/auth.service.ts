@@ -10,7 +10,7 @@ import { CoreService } from '../core/core.service';
 export class AuthService {
 
   isLoggedIn = false;
-  loggedUser: firebase.User;
+  loggedUser = {};
   recaptchaVerifier;
   confirmation;
 

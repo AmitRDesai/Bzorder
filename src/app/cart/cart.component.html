@@ -36,7 +36,7 @@
       <p>
         <b>Grand Total</b>
         <span class="pull-right"> ₹
-          <b> {{ getTotal() }} </b>
+          <b> {{ getTotal(null) }} </b>
         </span>
       </p>
       <div class="row" style="margin: 10px">
@@ -72,7 +72,7 @@
               <label for="PaymentAmount">Payment amount</label>
               <div class="amount-placeholder">
                 <span>₹</span>
-                <span>{{ getTotal() }}</span>
+                <span>{{ getTotal(null) }}</span>
               </div>
             </div>
             <div class="form-group">
@@ -109,7 +109,7 @@
             </div>
             <button id="PayButton" class="btn btn-block btn-success submit-button" type="submit">
               <span class="submit-button-lock"></span>
-              <span class="align-middle">Pay ₹ {{ getTotal() }}</span>
+              <span class="align-middle">Pay ₹ {{ getTotal(null) }}</span>
             </button>
           </form>
         </div>

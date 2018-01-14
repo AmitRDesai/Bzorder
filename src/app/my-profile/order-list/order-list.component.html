@@ -4,9 +4,21 @@
       My Orders
     </div>
     <div class="panel-body">
-      <pre>
-        {{ orders | json }}
-      </pre>
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default" *ngFor="let order of orders | array; let i = index">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="{{'#collapse'+(i+1)}}">
+                {{ 'Order:' + order.id }}</a>
+            </h4>
+          </div>
+          <div id="{{'collapse'+(i+1)}}" class="panel-collapse collapse">
+            <div class="panel-body">
+              {{ order.items | json }}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -70,7 +70,12 @@ export class CartService {
     return { ...this.cartItems };
   }
 
-  clearEmpty(){
-    
+  clearEmpty() {
+    let vendorIds = Object.keys(this.cartItems);
+    for (let vendorId of vendorIds) {
+      if (this.cartItems[vendorId].length == 0)
+        delete this.cartItems[vendorId];
+    }
+    console.log(this.cartItems);
   }
 }
