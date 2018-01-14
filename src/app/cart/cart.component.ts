@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CoreService } from '../core/core.service';
 import { DatabaseService } from '../core/database.service';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-cart',
@@ -8,7 +9,7 @@ import { DatabaseService } from '../core/database.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-
+  @ViewChild("paymentModal") paymentModal: ModalDirective;
   items = [];
 
   constructor(private core: CoreService,
@@ -34,6 +35,7 @@ export class CartComponent implements OnInit {
   }
 
   placeOrder(){
+    this.paymentModal.show();
     this.data.saveOrder(this.items);
   }
 

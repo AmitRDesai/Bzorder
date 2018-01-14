@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { LoadingModule } from 'ngx-loading';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -52,7 +53,8 @@ import { Globals } from './utils/globals';
     LoadingModule,
     CoreModule,
     SimpleNotificationsModule.forRoot(),
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [AuthService, UserService, Globals],
   bootstrap: [AppComponent]
