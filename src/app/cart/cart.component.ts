@@ -49,13 +49,19 @@ export class CartComponent implements OnInit {
       });
     }
     else if(this.state == 1){
-      this.data.saveOrder(this.items, this.cart.address).then(()=>{
-        this.router.navigate(['cart','order-placed']);
-      });
-      this.cart.clearCart();
+      this.paymentModal.show();
     }else{
 
     }
+  }
+  makePayment(){
+    this.paymentModal.hide();
+    this.data.saveOrder(this.items, this.cart.address).then(()=>{
+      this.router.navigate(['cart','order-placed']);
+    });
+    this.cart.clearCart();
+  }
+
   }
 
 }

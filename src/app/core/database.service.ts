@@ -110,7 +110,7 @@ export class DatabaseService {
   saveCart(cartItem) {
     const uid = firebase.auth().currentUser.uid;
     return this.usersRef.child(uid).child('cart').set(cartItem).then((data) => {
-      return data.val();
+      
     }).catch((err) => {
       console.log(err);
     })
