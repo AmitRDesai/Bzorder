@@ -18,12 +18,14 @@ export class SingUpComponent implements OnInit {
   ngOnInit() {
   }
 
-  signUp(form){
-    this.userService.updateProfile(form.value).then(()=>{
-      this.userService.updatePassword(form.value.password).then(()=>{
-        this.auth.refresh();
-        this.auth.isLoggedIn = true;
-        this.router.navigate(['home']);
+  signUp(form) {
+    this.userService.updateProfile(form.value).then(() => {
+      this.userService.updatePassword(form.value.password).then(() => {
+        this.userService.updateEmail(form.value.email).then(() => {
+          this.auth.refresh();
+          this.auth.isLoggedIn = true;
+          this.router.navigate(['home']);
+        });
       });
     })
   }

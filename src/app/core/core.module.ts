@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DatabaseService } from './database.service';
 import { CoreService } from './core.service';
 import { ArrayPipe } from './array.pipe';
+import { CartService } from './cart.service';
 
 @NgModule({
   imports: [
@@ -12,7 +13,7 @@ import { ArrayPipe } from './array.pipe';
     HttpClientModule
   ],
   declarations: [ArrayPipe],
-  providers: [DatabaseService, CoreService],
+  providers: [DatabaseService, CoreService, CartService],
   exports:[ArrayPipe]
 })
 export class CoreModule { }

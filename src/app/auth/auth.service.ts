@@ -18,17 +18,18 @@ export class AuthService {
     private data: DatabaseService,
     private core: CoreService) { }
 
-  init() {
+  init(callback: Function) {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.loggedUser = user;
-        if (user.displayName){
+        if (user.displayName) {
           this.isLoggedIn = true;
-          if(this.router.url === '/login' || this.router.url === '/sign-up')
+          if (this.router.url === '/login' || this.router.url === '/sign-up')
             this.router.navigate(['home']);
-        }else{
+        } else {
           this.router.navigate(['sign-up']);
         }
+        callback();
       } else {
         this.router.navigate(['login']);
       }
@@ -44,11 +45,9 @@ export class AuthService {
 
   login(user: User) {
     firebase.auth().signInWithEmailAndPassword(user.email, user.password)
-      .then(
-      res => {
-      })
-      .catch(
-      err => console.log(err)
+      .then(res => {})
+      .catch(err => 
+        console.log(err)
       );
   }
 
@@ -60,12 +59,12 @@ export class AuthService {
 
   verifyCode(code) {
     this.confirmation.confirm(code).then(() => {
-          this.core.setLoading(false);
-          this.router.navigate(['home']);
-        }).catch(err => {
-          console.log(err);
-          this.core.setLoading(false);
-        });
+      this.core.setLoading(false);
+      this.router.navigate(['home']);
+    }).catch(err => {
+      console.log(err);
+      this.core.setLoading(false);
+    });
   }
 
   singUp(user: User) {
@@ -84,9 +83,9 @@ export class AuthService {
     return this.isLoggedIn;
   }
 
-  refresh(){
+  refresh() {
     let user = firebase.auth().currentUser;
-    if(user){
+    if (user) {
       this.loggedUser = user;
       this.isLoggedIn = true;
     }

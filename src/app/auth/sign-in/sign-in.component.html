@@ -7,20 +7,20 @@
       <div id="logo-container"></div>
       <div class="col-sm-12 col-md-12">
         <form>
-          <div class="form-group input-group">
+          <div class="form-group input-group" [ngClass]="{'has-error' : !phoneInput.valid && phoneInput.touched && !phoneInput.disabled}">
             <span class="input-group-addon">
               <i class="glyphicon glyphicon-earphone"></i>
-            </span>
-            <input class="form-control" type="text" [disabled]="state == 1" [(ngModel)]="phone" name='email' placeholder="phone" required/>
+            </span> 
+            <input class="form-control" type="text" [disabled]="state == 1" name="phone" [(ngModel)]="phone" placeholder="Phone" required #phoneInput="ngModel"/>
           </div>
-          <div class="form-group input-group" *ngIf="state != 0">
+          <div class="form-group input-group" *ngIf="state != 0" [ngClass]="{'has-error' : !codeInput.valid && codeInput.touched }">
             <span class="input-group-addon">
               <i class="glyphicon glyphicon-lock"></i>
             </span>
-            <input class="form-control" type="text" [(ngModel)]="code" name='password' placeholder="OTP" required/>
+            <input class="form-control" type="text" [(ngModel)]="code" name='password' placeholder="OTP" required #codeInput="ngModel"/>
           </div>
           <div class="form-group">
-            <button type="submit" id="sign-in-button" (click)="onSend()" class="btn btn-primary btn-block">Submit</button>
+            <button type="submit" id="sign-in-button" [disabled]="!phoneInput.valid && !phoneInput.disabled" (click)="onSend()" class="btn btn-primary btn-block">Submit</button>
             <button type="submit" *ngIf="state != 0" (click)="code = ''; state = 0" class="btn btn-default btn-block">Re-sent</button>
           </div>
           <div class="form-group text-center">

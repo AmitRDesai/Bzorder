@@ -7,29 +7,29 @@
       <div id="logo-container"></div>
       <div class="col-sm-12 col-md-12">
         <form #form="ngForm" (ngSubmit)="signUp(form)">
-          <div class="form-group input-group">
+          <div class="form-group input-group" [ngClass]="{'has-error' : !name.valid && name.touched }">
             <span class="input-group-addon">
               <i class="glyphicon glyphicon-user"></i>
             </span>
-            <input class="form-control" type="text" ngModel name='displayName' placeholder="Name" required/>
+            <input class="form-control" type="text" ngModel name='displayName' placeholder="Name" required #name="ngModel"/>
           </div>
-          <div class="form-group input-group">
+          <div class="form-group input-group" [ngClass]="{'has-error' : !email.valid && email.touched }">
             <span class="input-group-addon">
               <i class="glyphicon glyphicon-envelope"></i>
             </span>
-            <input class="form-control" type="text" ngModel name='email' placeholder="Email" required/>
+            <input class="form-control" type="text" ngModel name='email' placeholder="Email" required #email="ngModel"/>
           </div>
-          <div class="form-group input-group">
+          <div class="form-group input-group" [ngClass]="{'has-error' : !pwd.valid && pwd.touched }">
             <span class="input-group-addon">
               <i class="glyphicon glyphicon-lock"></i>
             </span>
-            <input class="form-control" type="password" ngModel name='password' placeholder="password" required/>
+            <input class="form-control" type="password" ngModel name='password' placeholder="password" required #pwd="ngModel"/>
           </div>
-          <div class="form-group input-group">
+          <div class="form-group input-group" [ngClass]="{'has-error' : !cpwd.valid && cpwd.touched }">
             <span class="input-group-addon">
               <i class="glyphicon glyphicon-lock"></i>
             </span>
-            <input class="form-control" type="password" ngModel name='confirm-password' placeholder="confirm-password" required/>
+            <input class="form-control" type="password" ngModel name='confirm-password' placeholder="confirm-password" required #cpwd="ngModel"/>
           </div>
           <div class="form-group">
             <button type="submit" [disabled]="!form.valid" class="btn btn-primary btn-block">Continue</button>

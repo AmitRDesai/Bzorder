@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
-import { CoreService } from '../../core/core.service';
+import { CartService } from '../../core/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -10,14 +10,12 @@ import { CoreService } from '../../core/core.service';
 })
 export class HeaderComponent implements OnInit {
   pushRightClass: string = 'push-right';
-  count = 0;
+  
   constructor(public auth: AuthService,public router: Router,
-    private core: CoreService) { }
+    public cart: CartService) { }
 
   ngOnInit() {
-    this.core.itemCount.subscribe((count)=>{
-      this.count = count;
-    })
+    
   }
   
   onLoggedout(){

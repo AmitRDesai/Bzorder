@@ -11,7 +11,7 @@ import { CoreService } from '../../core/core.service';
 })
 export class SignInComponent implements OnInit, AfterViewInit {
 
-  phone: string = '+91';
+  phone: string = '';
   code: number;
   state: number = 0;
 
@@ -30,13 +30,13 @@ export class SignInComponent implements OnInit, AfterViewInit {
   onSend() {
     switch (this.state) {
       case 0:
-        this.auth.sendCode(this.phone);
+        this.auth.sendCode('+91' + this.phone);
         this.state = 1;
         break;
       case 1:
         if (this.code) {
           this.core.setLoading(true);
-          this.auth.verifyCode(this.code)
+          this.auth.verifyCode(this.code);
         }
         break;
       case 2:
