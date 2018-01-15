@@ -31,7 +31,7 @@ export class AuthService {
         }
         callback();
       } else {
-        this.router.navigate(['login']);
+        // this.router.navigate(['login']);
       }
       this.core.setLoading(false);
     });
@@ -69,9 +69,8 @@ export class AuthService {
 
   singUp(user: User) {
     firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
-      .catch(
-      err => console.log(err)
-      );
+      .then()
+      .catch(err => console.log(err));
   }
 
   logout() {

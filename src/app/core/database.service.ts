@@ -111,35 +111,45 @@ export class DatabaseService {
   }
 
   getUserData() {
-    const uid = firebase.auth().currentUser.uid;
-    return this.usersRef.child(uid).once('value').then((data) => {
-      return data.val();
-    }).catch((err) => {
-      console.log(err);
-    })
+    const user = firebase.auth().currentUser;
+    if (user) {
+      return this.usersRef.child(user.uid).once('value').then((data) => {
+        return data.val();
+      }).catch((err) => {
+        console.log(err);
+      })
+    }
+    return Promise.resolve({});
   }
 
   saveCart(cartItem) {
-    const uid = firebase.auth().currentUser.uid;
-    return this.usersRef.child(uid).child('cart').set(cartItem).then(() => {
-    }).catch((err) => {
-      console.log(err);
-    })
+    const user = firebase.auth().currentUser;
+    if (user) {
+      return this.usersRef.child(user.uid).child('cart').set(cartItem).then(() => {
+      }).catch((err) => {
+        console.log(err);
+      })
+    }
+    return Promise.resolve();
   }
 
   getCart() {
-    const uid = firebase.auth().currentUser.uid;
-    return this.usersRef.child(uid).child('cart').once('value').then((data) => {
-      return data.val();
-    }).catch((err) => {
-      console.log(err);
-    })
+    const user = firebase.auth().currentUser;
+    if (user) {
+      const uid = firebase.auth().currentUser.uid;
+      return this.usersRef.child(uid).child('cart').once('value').then((data) => {
+        return data.val();
+      }).catch((err) => {
+        console.log(err);
+      });
+    }
+    return Promise.resolve();
   }
 
-  getOrders(){
+  getOrders() {
     const uid = firebase.auth().currentUser.uid;
     this.core.setLoading(true);
-    return this.usersRef.child(uid).child('orders').once('value').then((data)=>{
+    return this.usersRef.child(uid).child('orders').once('value').then((data) => {
       this.core.setLoading(false);
       return data.val();
     })

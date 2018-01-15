@@ -15,7 +15,7 @@ import { UserInfoComponent } from './my-profile/user-info/user-info.component';
 import { OrderListComponent } from './my-profile/order-list/order-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', component: SignInComponent },
   { path: 'sign-up', component: SingUpComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },

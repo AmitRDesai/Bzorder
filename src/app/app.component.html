@@ -1,9 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
-<app-header *ngIf="auth.isLoggedIn"></app-header>
+<app-header></app-header>
 <div>
   <div class="container" [ngStyle]="{'min-height.px': height}">
     <router-outlet></router-outlet>
   </div>
-  <app-footer *ngIf="auth.isLoggedIn"></app-footer>
+  <app-footer></app-footer>
 </div>

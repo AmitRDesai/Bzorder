@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { DatabaseService } from '../core/database.service';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ModalDirective } from 'ngx-bootstrap/modal';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-cart',
@@ -21,7 +22,8 @@ export class CartComponent implements OnInit {
   constructor(public cart: CartService,
     private data: DatabaseService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private auth: AuthService) { }
 
   ngOnInit() {
     this.items = this.cart.getCartItems();
@@ -42,7 +44,7 @@ export class CartComponent implements OnInit {
     }
     else {
       let vendorIds = Object.keys(this.items);
-      for(let vendorId of vendorIds){
+      for (let vendorId of vendorIds) {
         for (let item of this.items[vendorId]) {
           total += item.price * item.quantity;
         }
@@ -53,6 +55,10 @@ export class CartComponent implements OnInit {
 
   placeOrder() {
     if (this.state == 0) {
+      if (!this.auth.isLoggedIn) {
+        this.router.navigate(['login']);
+        return;
+      }
       this.state = 1;
       this.router.navigate(['checkout'], {
         relativeTo: this.route
