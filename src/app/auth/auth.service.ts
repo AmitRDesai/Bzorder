@@ -5,12 +5,14 @@ import * as firebase from 'firebase';
 import { User } from './user.modal';
 import { DatabaseService } from '../core/database.service';
 import { CoreService } from '../core/core.service';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class AuthService {
 
   isLoggedIn = false;
-  loggedUser = {};
+  onLoggedIn = new Subject<void>();
+  loggedUser: any = {};
   recaptchaVerifier;
   confirmation;
 
@@ -30,6 +32,7 @@ export class AuthService {
           this.router.navigate(['sign-up']);
         }
         callback();
+        this.onLoggedIn.next();
       } else {
         // this.router.navigate(['login']);
       }

@@ -22,7 +22,7 @@
         <slide *ngFor="let category of categories; let i = index">
             <div style="background: lightgray; width: 100%; height: 150px"></div>
             <div class="carousel-caption d-none d-md-block">
-                <h3>Deal {{ i+1 }}</h3>
+                <h3><a routerLink="/cart">Deal {{ i+1 }}</a></h3>
                 <p>Dhonsa
                     <br>Idli</p>
             </div>

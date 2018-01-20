@@ -5,16 +5,30 @@
     </div>
     <div class="panel-body">
       <div class="panel-group" id="accordion">
-        <div class="panel panel-default" *ngFor="let order of orders | array; let i = index">
+        <div class="panel panel-info" *ngFor="let order of orders | array; let i = index">
           <div class="panel-heading">
             <h4 class="panel-title">
               <a data-toggle="collapse" data-parent="#accordion" href="{{'#collapse'+(i+1)}}">
-                {{ 'Order:' + order.id }}</a>
+                {{ 'Order:' + order.date }}</a>
             </h4>
           </div>
           <div id="{{'collapse'+(i+1)}}" class="panel-collapse collapse">
             <div class="panel-body">
-              {{ order.items | json }}
+              <div class="col-md-12" *ngFor="let vendorId of order.items | keys">
+                <div class="row list-group-item item" *ngFor="let item of order.items[vendorId]; let i = index">
+                  <div class="col-md-2">
+                    <img [src]="'./assets/images/' + item.image" alt="{{ item.name}}" class="img-responsive item">
+                  </div>
+                  <div class="col-md-10">
+                    <h4 class="list-group-item-heading">{{ item.name }}
+                      <span class="pull-right"> ₹ {{ item.price * item.quantity }}</span>
+                    </h4>
+                    <p style="margin-top: 10px">
+                      Quantity: <span class="label label-info">{{item.quantity}}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

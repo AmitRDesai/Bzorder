@@ -147,11 +147,14 @@ export class DatabaseService {
   }
 
   getOrders() {
-    const uid = firebase.auth().currentUser.uid;
-    this.core.setLoading(true);
-    return this.usersRef.child(uid).child('orders').once('value').then((data) => {
-      this.core.setLoading(false);
-      return data.val();
-    })
+    const user = firebase.auth().currentUser;
+    if (user) {
+      this.core.setLoading(true);
+      return this.usersRef.child(user.uid).child('orders').once('value').then((data) => {
+        this.core.setLoading(false);
+        return data.val();
+      })
+    }
+    return Promise.resolve([]);
   }
 }
