@@ -10,6 +10,7 @@
             <h4 class="panel-title">
               <a data-toggle="collapse" data-parent="#accordion" href="{{'#collapse'+(i+1)}}">
                 {{ 'Order:' + order.date }}</a>
+              <span class="pull-right">Status: <span class="label label-success">{{order.status}}</span></span>
             </h4>
           </div>
           <div id="{{'collapse'+(i+1)}}" class="panel-collapse collapse">
