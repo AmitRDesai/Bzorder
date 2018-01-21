@@ -44,13 +44,26 @@ export class CartComponent implements OnInit {
     }
     else {
       let vendorIds = Object.keys(this.items);
+      total = 0;
       for (let vendorId of vendorIds) {
         for (let item of this.items[vendorId]) {
           total += item.price * item.quantity;
         }
       }
+      total += total * 5 / 100;
     }
     return total;
+  }
+
+  getGst() {
+    let vendorIds = Object.keys(this.items);
+    let total = 0;
+    for (let vendorId of vendorIds) {
+      for (let item of this.items[vendorId]) {
+        total += item.price * item.quantity;
+      }
+    }
+    return total * 5 / 100;
   }
 
   placeOrder() {

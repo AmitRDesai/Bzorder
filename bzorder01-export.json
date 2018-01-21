@@ -1,0 +1,618 @@
+{
+  "categories" : [ "Food", "Bakery Item", "Grocey", "Sweets" ],
+  "items" : {
+    "-L2pw9foIK6bVa5z8Mbe" : {
+      "description" : "Item 0 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 0",
+      "price" : 10,
+      "vendor_id" : "-L2pw9Or0liHyUFG3g50"
+    },
+    "-L2pw9foIK6bVa5z8Mbf" : {
+      "description" : "Item 1 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 1",
+      "price" : 11,
+      "vendor_id" : "-L2pw9OsYIHgT79owMTp"
+    },
+    "-L2pw9fpsK07jYdFaEBJ" : {
+      "description" : "Item 2 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 2",
+      "price" : 12,
+      "vendor_id" : "-L2pw9OsYIHgT79owMTq"
+    },
+    "-L2pw9fpsK07jYdFaEBK" : {
+      "description" : "Item 3 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 3",
+      "price" : 13,
+      "vendor_id" : "-L2pw9Ot6nz7qip9hQir"
+    },
+    "-L2pw9fpsK07jYdFaEBL" : {
+      "description" : "Item 4 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 4",
+      "price" : 14,
+      "vendor_id" : "-L2pw9Ot6nz7qip9hQis"
+    },
+    "-L2pw9fpsK07jYdFaEBM" : {
+      "description" : "Item 5 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 5",
+      "price" : 15,
+      "vendor_id" : "-L2pw9Ot6nz7qip9hQit"
+    },
+    "-L2pw9fpsK07jYdFaEBN" : {
+      "description" : "Item 6 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 6",
+      "price" : 16,
+      "vendor_id" : "-L2pw9Ot6nz7qip9hQiu"
+    },
+    "-L2pw9fq6Y_5cnQSOQmw" : {
+      "description" : "Item 7 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 7",
+      "price" : 17,
+      "vendor_id" : "-L2pw9Ot6nz7qip9hQiv"
+    },
+    "-L2pw9fq6Y_5cnQSOQmx" : {
+      "description" : "Item 8 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 8",
+      "price" : 18,
+      "vendor_id" : "-L2pw9Ot6nz7qip9hQiw"
+    },
+    "-L2pw9fq6Y_5cnQSOQmy" : {
+      "description" : "Item 9 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 9",
+      "price" : 19,
+      "vendor_id" : "-L2pw9OulWQCHA3i6Ajw"
+    },
+    "-L2pw9fq6Y_5cnQSOQmz" : {
+      "description" : "Item 10 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 10",
+      "price" : 20,
+      "vendor_id" : "-L2pw9Or0liHyUFG3g50"
+    },
+    "-L2pw9fq6Y_5cnQSOQn-" : {
+      "description" : "Item 11 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 11",
+      "price" : 21,
+      "vendor_id" : "-L2pw9OsYIHgT79owMTp"
+    },
+    "-L2pw9fq6Y_5cnQSOQn0" : {
+      "description" : "Item 12 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 12",
+      "price" : 22,
+      "vendor_id" : "-L2pw9OsYIHgT79owMTq"
+    },
+    "-L2pw9fq6Y_5cnQSOQn1" : {
+      "description" : "Item 13 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 13",
+      "price" : 23,
+      "vendor_id" : "-L2pw9Ot6nz7qip9hQir"
+    },
+    "-L2pw9frKJdMyaIxbobE" : {
+      "description" : "Item 14 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 14",
+      "price" : 24,
+      "vendor_id" : "-L2pw9Ot6nz7qip9hQis"
+    },
+    "-L2pw9frKJdMyaIxbobF" : {
+      "description" : "Item 15 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 15",
+      "price" : 25,
+      "vendor_id" : "-L2pw9Ot6nz7qip9hQit"
+    },
+    "-L2pw9frKJdMyaIxbobG" : {
+      "description" : "Item 16 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 16",
+      "price" : 26,
+      "vendor_id" : "-L2pw9Ot6nz7qip9hQiu"
+    },
+    "-L2pw9frKJdMyaIxbobH" : {
+      "description" : "Item 17 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 17",
+      "price" : 27,
+      "vendor_id" : "-L2pw9Ot6nz7qip9hQiv"
+    },
+    "-L2pw9frKJdMyaIxbobI" : {
+      "description" : "Item 18 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 18",
+      "price" : 28,
+      "vendor_id" : "-L2pw9Ot6nz7qip9hQiw"
+    },
+    "-L2pw9frKJdMyaIxbobJ" : {
+      "description" : "Item 19 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 19",
+      "price" : 29,
+      "vendor_id" : "-L2pw9OulWQCHA3i6Ajw"
+    },
+    "-L2pw9fsBZrHUFs7Yz23" : {
+      "description" : "Item 20 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 20",
+      "price" : 30,
+      "vendor_id" : "-L2pw9Or0liHyUFG3g50"
+    },
+    "-L2pw9fsBZrHUFs7Yz24" : {
+      "description" : "Item 21 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 21",
+      "price" : 31,
+      "vendor_id" : "-L2pw9OsYIHgT79owMTp"
+    },
+    "-L2pw9fsBZrHUFs7Yz25" : {
+      "description" : "Item 22 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 22",
+      "price" : 32,
+      "vendor_id" : "-L2pw9OsYIHgT79owMTq"
+    },
+    "-L2pw9fsBZrHUFs7Yz26" : {
+      "description" : "Item 23 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 23",
+      "price" : 33,
+      "vendor_id" : "-L2pw9Ot6nz7qip9hQir"
+    },
+    "-L2pw9fsBZrHUFs7Yz27" : {
+      "description" : "Item 24 description",
+      "image" : "defualt-item.jpg",
+      "name" : "Item 24",
+      "price" : 34,
+      "vendor_id" : "-L2pw9Ot6nz7qip9hQis"
+    }
+  },
+  "users" : {
+    "QlPTULRaRVeZVdDbVfFQcNCHoXG2" : {
+      "cart" : {
+        "-L2pw9Or0liHyUFG3g50" : [ {
+          "description" : "Item 0 description",
+          "id" : "-L2pw9foIK6bVa5z8Mbe",
+          "image" : "defualt-item.jpg",
+          "name" : "Item 0",
+          "price" : 10,
+          "quantity" : 2,
+          "vendor_id" : "-L2pw9Or0liHyUFG3g50"
+        } ],
+        "-L2pw9Ot6nz7qip9hQiw" : [ {
+          "description" : "Item 8 description",
+          "id" : "-L2pw9fq6Y_5cnQSOQmx",
+          "image" : "defualt-item.jpg",
+          "name" : "Item 8",
+          "price" : 18,
+          "quantity" : 1,
+          "vendor_id" : "-L2pw9Ot6nz7qip9hQiw"
+        } ]
+      },
+      "orders" : {
+        "-L2vJ8FZK9pS9Bziy0db" : {
+          "address" : {
+            "address1" : "502-503, 5TH FLOOR, SAI DATTA ARCADE",
+            "address2" : "STREET NO.6, HIMAYATH NAGAR",
+            "city" : "HYDERABAD",
+            "pin" : "500029",
+            "state" : "TELANGANA"
+          },
+          "date" : "Tue Jan 16 2018",
+          "items" : {
+            "-L2pw9Or0liHyUFG3g50" : [ {
+              "description" : "Item 10 description",
+              "id" : "-L2pw9fq6Y_5cnQSOQmz",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 10",
+              "price" : 20,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9Or0liHyUFG3g50"
+            } ],
+            "-L2pw9OulWQCHA3i6Ajw" : [ {
+              "description" : "Item 19 description",
+              "id" : "-L2pw9frKJdMyaIxbobJ",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 19",
+              "price" : 29,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9OulWQCHA3i6Ajw"
+            } ]
+          },
+          "status" : "placed"
+        }
+      }
+    },
+    "VimAuICMVkfxMTNCrscrvDkySR83" : {
+      "cart" : {
+        "-L2pw9Or0liHyUFG3g50" : [ {
+          "description" : "Item 0 description",
+          "id" : "-L2pw9foIK6bVa5z8Mbe",
+          "image" : "defualt-item.jpg",
+          "name" : "Item 0",
+          "price" : 10,
+          "quantity" : 1,
+          "vendor_id" : "-L2pw9Or0liHyUFG3g50"
+        } ]
+      }
+    },
+    "ZdCtjc5fYtV3ge70eDtIJtOXHWV2" : {
+      "cart" : {
+        "-L2pw9OsYIHgT79owMTq" : [ {
+          "description" : "Item 12 description",
+          "id" : "-L2pw9fq6Y_5cnQSOQn0",
+          "image" : "defualt-item.jpg",
+          "name" : "Item 12",
+          "price" : 22,
+          "quantity" : 1,
+          "vendor_id" : "-L2pw9OsYIHgT79owMTq"
+        }, {
+          "description" : "Item 22 description",
+          "id" : "-L2pw9fsBZrHUFs7Yz25",
+          "image" : "defualt-item.jpg",
+          "name" : "Item 22",
+          "price" : 32,
+          "vendor_id" : "-L2pw9OsYIHgT79owMTq"
+        } ]
+      }
+    },
+    "ilXQ7QR49UVvwbEJltkhGwo6jy43" : {
+      "cart" : {
+        "-L2pw9Or0liHyUFG3g50" : [ {
+          "description" : "Item 0 description",
+          "id" : "-L2pw9foIK6bVa5z8Mbe",
+          "image" : "defualt-item.jpg",
+          "name" : "Item 0",
+          "price" : 10,
+          "quantity" : 5,
+          "vendor_id" : "-L2pw9Or0liHyUFG3g50"
+        } ]
+      },
+      "orders" : {
+        "-L2q-VoFumJVkVHu5dlw" : {
+          "address" : {
+            "address1" : "Shahpur, Ahmedabad, Gujarat, India",
+            "address2" : "",
+            "city" : "Ahmedabad",
+            "pin" : "380008",
+            "state" : "Gujarat"
+          },
+          "date" : "Mon Jan 15 2018",
+          "items" : {
+            "-L2pw9Or0liHyUFG3g50" : [ {
+              "description" : "Item 10 description",
+              "id" : "-L2pw9fq6Y_5cnQSOQmz",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 10",
+              "price" : 20,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9Or0liHyUFG3g50"
+            } ]
+          },
+          "status" : "placed"
+        },
+        "-L2q2-NUfUNpFDESgh-l" : {
+          "address" : {
+            "address1" : "Shahpur, Ahmedabad, Gujarat, India",
+            "address2" : "",
+            "city" : "Ahmedabad",
+            "pin" : "380008",
+            "state" : "Gujarat"
+          },
+          "date" : "Mon Jan 15 2018",
+          "items" : {
+            "-L2pw9Or0liHyUFG3g50" : [ {
+              "description" : "Item 0 description",
+              "id" : "-L2pw9foIK6bVa5z8Mbe",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 0",
+              "price" : 10,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9Or0liHyUFG3g50"
+            }, {
+              "description" : "Item 10 description",
+              "id" : "-L2pw9fq6Y_5cnQSOQmz",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 10",
+              "price" : 20,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9Or0liHyUFG3g50"
+            }, {
+              "description" : "Item 20 description",
+              "id" : "-L2pw9fsBZrHUFs7Yz23",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 20",
+              "price" : 30,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9Or0liHyUFG3g50"
+            } ],
+            "-L2pw9OsYIHgT79owMTp" : [ {
+              "description" : "Item 1 description",
+              "id" : "-L2pw9foIK6bVa5z8Mbf",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 1",
+              "price" : 11,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9OsYIHgT79owMTp"
+            }, {
+              "description" : "Item 11 description",
+              "id" : "-L2pw9fq6Y_5cnQSOQn-",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 11",
+              "price" : 21,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9OsYIHgT79owMTp"
+            }, {
+              "description" : "Item 21 description",
+              "id" : "-L2pw9fsBZrHUFs7Yz24",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 21",
+              "price" : 31,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9OsYIHgT79owMTp"
+            } ],
+            "-L2pw9OsYIHgT79owMTq" : [ {
+              "description" : "Item 2 description",
+              "id" : "-L2pw9fpsK07jYdFaEBJ",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 2",
+              "price" : 12,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9OsYIHgT79owMTq"
+            }, {
+              "description" : "Item 12 description",
+              "id" : "-L2pw9fq6Y_5cnQSOQn0",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 12",
+              "price" : 22,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9OsYIHgT79owMTq"
+            }, {
+              "description" : "Item 22 description",
+              "id" : "-L2pw9fsBZrHUFs7Yz25",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 22",
+              "price" : 32,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9OsYIHgT79owMTq"
+            } ],
+            "-L2pw9Ot6nz7qip9hQir" : [ {
+              "description" : "Item 3 description",
+              "id" : "-L2pw9fpsK07jYdFaEBK",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 3",
+              "price" : 13,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9Ot6nz7qip9hQir"
+            }, {
+              "description" : "Item 13 description",
+              "id" : "-L2pw9fq6Y_5cnQSOQn1",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 13",
+              "price" : 23,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9Ot6nz7qip9hQir"
+            }, {
+              "description" : "Item 23 description",
+              "id" : "-L2pw9fsBZrHUFs7Yz26",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 23",
+              "price" : 33,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9Ot6nz7qip9hQir"
+            } ],
+            "-L2pw9Ot6nz7qip9hQis" : [ {
+              "description" : "Item 4 description",
+              "id" : "-L2pw9fpsK07jYdFaEBL",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 4",
+              "price" : 14,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9Ot6nz7qip9hQis"
+            }, {
+              "description" : "Item 14 description",
+              "id" : "-L2pw9frKJdMyaIxbobE",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 14",
+              "price" : 24,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9Ot6nz7qip9hQis"
+            }, {
+              "description" : "Item 24 description",
+              "id" : "-L2pw9fsBZrHUFs7Yz27",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 24",
+              "price" : 34,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9Ot6nz7qip9hQis"
+            } ],
+            "-L2pw9Ot6nz7qip9hQit" : [ {
+              "description" : "Item 5 description",
+              "id" : "-L2pw9fpsK07jYdFaEBM",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 5",
+              "price" : 15,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9Ot6nz7qip9hQit"
+            }, {
+              "description" : "Item 15 description",
+              "id" : "-L2pw9frKJdMyaIxbobF",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 15",
+              "price" : 25,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9Ot6nz7qip9hQit"
+            } ],
+            "-L2pw9Ot6nz7qip9hQiu" : [ {
+              "description" : "Item 6 description",
+              "id" : "-L2pw9fpsK07jYdFaEBN",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 6",
+              "price" : 16,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9Ot6nz7qip9hQiu"
+            }, {
+              "description" : "Item 16 description",
+              "id" : "-L2pw9frKJdMyaIxbobG",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 16",
+              "price" : 26,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9Ot6nz7qip9hQiu"
+            } ],
+            "-L2pw9Ot6nz7qip9hQiw" : [ {
+              "description" : "Item 8 description",
+              "id" : "-L2pw9fq6Y_5cnQSOQmx",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 8",
+              "price" : 18,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9Ot6nz7qip9hQiw"
+            }, {
+              "description" : "Item 18 description",
+              "id" : "-L2pw9frKJdMyaIxbobI",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 18",
+              "price" : 28,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9Ot6nz7qip9hQiw"
+            } ],
+            "-L2pw9OulWQCHA3i6Ajw" : [ {
+              "description" : "Item 9 description",
+              "id" : "-L2pw9fq6Y_5cnQSOQmy",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 9",
+              "price" : 19,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9OulWQCHA3i6Ajw"
+            }, {
+              "description" : "Item 19 description",
+              "id" : "-L2pw9frKJdMyaIxbobJ",
+              "image" : "defualt-item.jpg",
+              "name" : "Item 19",
+              "price" : 29,
+              "quantity" : 1,
+              "vendor_id" : "-L2pw9OulWQCHA3i6Ajw"
+            } ]
+          },
+          "status" : "placed"
+        }
+      }
+    },
+    "xNoiaZD9j5Q0Ng0dmwRn2iOvv7t2" : {
+      "cart" : {
+        "-L2pw9Ot6nz7qip9hQiw" : [ {
+          "description" : "Item 8 description",
+          "id" : "-L2pw9fq6Y_5cnQSOQmx",
+          "image" : "defualt-item.jpg",
+          "name" : "Item 8",
+          "price" : 18,
+          "quantity" : 1,
+          "vendor_id" : "-L2pw9Ot6nz7qip9hQiw"
+        }, {
+          "description" : "Item 18 description",
+          "id" : "-L2pw9frKJdMyaIxbobI",
+          "image" : "defualt-item.jpg",
+          "name" : "Item 18",
+          "price" : 28,
+          "vendor_id" : "-L2pw9Ot6nz7qip9hQiw"
+        } ]
+      }
+    },
+    "ziIIlTtON5SG2fWwFEBBU3GSuQ53" : {
+      "cart" : {
+        "-L2pw9OsYIHgT79owMTp" : [ {
+          "description" : "Item 1 description",
+          "id" : "-L2pw9foIK6bVa5z8Mbf",
+          "image" : "defualt-item.jpg",
+          "name" : "Item 1",
+          "price" : 11,
+          "quantity" : 2,
+          "vendor_id" : "-L2pw9OsYIHgT79owMTp"
+        } ]
+      }
+    }
+  },
+  "vendors" : {
+    "-L2pw9Or0liHyUFG3g50" : {
+      "category_id" : 0,
+      "description" : "vendor 0 description",
+      "image" : "defualt-vendor.jpg",
+      "loaction" : "abc0",
+      "name" : "vendor 0"
+    },
+    "-L2pw9OsYIHgT79owMTp" : {
+      "category_id" : 1,
+      "description" : "vendor 1 description",
+      "image" : "defualt-vendor.jpg",
+      "loaction" : "abc1",
+      "name" : "vendor 1"
+    },
+    "-L2pw9OsYIHgT79owMTq" : {
+      "category_id" : 2,
+      "description" : "vendor 2 description",
+      "image" : "defualt-vendor.jpg",
+      "loaction" : "abc2",
+      "name" : "vendor 2"
+    },
+    "-L2pw9Ot6nz7qip9hQir" : {
+      "category_id" : 3,
+      "description" : "vendor 3 description",
+      "image" : "defualt-vendor.jpg",
+      "loaction" : "abc3",
+      "name" : "vendor 3"
+    },
+    "-L2pw9Ot6nz7qip9hQis" : {
+      "category_id" : 0,
+      "description" : "vendor 4 description",
+      "image" : "defualt-vendor.jpg",
+      "loaction" : "abc4",
+      "name" : "vendor 4"
+    },
+    "-L2pw9Ot6nz7qip9hQit" : {
+      "category_id" : 1,
+      "description" : "vendor 5 description",
+      "image" : "defualt-vendor.jpg",
+      "loaction" : "abc5",
+      "name" : "vendor 5"
+    },
+    "-L2pw9Ot6nz7qip9hQiu" : {
+      "category_id" : 2,
+      "description" : "vendor 6 description",
+      "image" : "defualt-vendor.jpg",
+      "loaction" : "abc6",
+      "name" : "vendor 6"
+    },
+    "-L2pw9Ot6nz7qip9hQiv" : {
+      "category_id" : 3,
+      "description" : "vendor 7 description",
+      "image" : "defualt-vendor.jpg",
+      "loaction" : "abc7",
+      "name" : "vendor 7"
+    },
+    "-L2pw9Ot6nz7qip9hQiw" : {
+      "category_id" : 0,
+      "description" : "vendor 8 description",
+      "image" : "defualt-vendor.jpg",
+      "loaction" : "abc8",
+      "name" : "vendor 8"
+    },
+    "-L2pw9OulWQCHA3i6Ajw" : {
+      "category_id" : 1,
+      "description" : "vendor 9 description",
+      "image" : "defualt-vendor.jpg",
+      "loaction" : "abc9",
+      "name" : "vendor 9"
+    }
+  }
+}

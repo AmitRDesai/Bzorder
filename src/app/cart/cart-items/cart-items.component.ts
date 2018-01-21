@@ -25,4 +25,13 @@ export class CartItemsComponent implements OnInit {
     this.cart.removeItem(index, vendorId);
   }
 
+  changeQty(item, up) {
+    if (up)
+      item.quantity++;
+    else {
+      if (item.quantity > 1)
+        item.quantity--;
+    }
+  }
+
 }

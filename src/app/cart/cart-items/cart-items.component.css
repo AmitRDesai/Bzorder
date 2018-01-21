@@ -1,6 +1,6 @@
 input.form-control {
     display: inline-block;
-    width: 75px;
+    width: 40px;
 }
 .item{
     margin-bottom: 20px;
@@ -12,4 +12,7 @@ img.item{
 }
 .list-group-item-heading {
     margin-top: 20px;
+}
+a.glyphicon{
+    cursor: pointer;
 }

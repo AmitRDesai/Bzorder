@@ -9,11 +9,13 @@
       </h4>
       <p style="margin-top: 10px">
         Quantity:
-        <input type="number" min="1" size="2" class="form-control" [(ngModel)]="item.quantity">
+        <a class="glyphicon glyphicon-minus" (click)="changeQty(item, false)"></a>
+        <input type="text" min="1" size="2" class="form-control" [(ngModel)]="item.quantity">
+        <a class="glyphicon glyphicon-plus" (click)="changeQty(item, true)"></a>
       </p>
       <br>
       <br>
-      <button class="btn btn-danger pull-right" (click)="onRemove(i, vendorId)"> Remove </button>
+      <button class="btn btn-danger pull-right" (click)="onRemove(item, vendorId)"> Remove </button>
     </div>
   </div>
 </div>

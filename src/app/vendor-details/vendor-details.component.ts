@@ -54,4 +54,14 @@ export class VendorDetailsComponent implements OnInit {
     }
   }
 
+  changeQty(item, up) {
+    item.quantity = item.quantity ? item.quantity : 0;
+    if (up)
+      item.quantity++;
+    else {
+      if (item.quantity > 1)
+        item.quantity--;
+    }
+  }
+
 }

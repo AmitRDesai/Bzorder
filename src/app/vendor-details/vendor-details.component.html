@@ -43,7 +43,9 @@
               </button>
             </div>
             <div class="col-md-5">
-              <input type="number" class="form-control" style="width:75px; display: unset" [(ngModel)]="item.quantity" placeholder="Qty"/>
+              <a class="glyphicon glyphicon-minus" (click)="changeQty(item, false)"></a>
+              <input type="text" min="1" size="2" style="display: unset;width: 40px" class="form-control" [(ngModel)]="item.quantity">
+              <a class="glyphicon glyphicon-plus" (click)="changeQty(item, true)"></a>
             </div>
           </div>
         </div>
