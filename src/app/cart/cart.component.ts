@@ -14,7 +14,7 @@ import { AuthService } from '../auth/auth.service';
 })
 export class CartComponent implements OnInit {
 
-  @ViewChild("paymentModal") paymentModal: ModalDirective;
+  @ViewChild('paymentModal') paymentModal: ModalDirective;
   items = {};
   vendors;
   state = 0;
@@ -38,15 +38,14 @@ export class CartComponent implements OnInit {
   getTotal(vendorId) {
     let total = 0;
     if (vendorId) {
-      for (let item of this.items[vendorId]) {
+      for (const item of this.items[vendorId]) {
         total += item.price * item.quantity;
       }
-    }
-    else {
-      let vendorIds = Object.keys(this.items);
+    }else {
+      const vendorIds = Object.keys(this.items);
       total = 0;
-      for (let vendorId of vendorIds) {
-        for (let item of this.items[vendorId]) {
+      for (const id of vendorIds) {
+        for (const item of this.items[id]) {
           total += item.price * item.quantity;
         }
       }
@@ -56,10 +55,10 @@ export class CartComponent implements OnInit {
   }
 
   getGst() {
-    let vendorIds = Object.keys(this.items);
+    const vendorIds = Object.keys(this.items);
     let total = 0;
-    for (let vendorId of vendorIds) {
-      for (let item of this.items[vendorId]) {
+    for (const vendorId of vendorIds) {
+      for (const item of this.items[vendorId]) {
         total += item.price * item.quantity;
       }
     }
@@ -67,7 +66,7 @@ export class CartComponent implements OnInit {
   }
 
   placeOrder() {
-    if (this.state == 0) {
+    if (this.state === 0) {
       if (!this.auth.isLoggedIn) {
         this.router.navigate(['login']);
         return;
@@ -76,8 +75,7 @@ export class CartComponent implements OnInit {
       this.router.navigate(['checkout'], {
         relativeTo: this.route
       });
-    }
-    else if (this.state == 1) {
+    }else if (this.state === 1) {
       this.paymentModal.show();
     } else {
 
@@ -90,5 +88,4 @@ export class CartComponent implements OnInit {
       this.cart.clearCart();
     });
   }
-
 }

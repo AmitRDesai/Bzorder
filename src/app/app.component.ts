@@ -22,12 +22,12 @@ export class AppComponent implements OnInit, DoCheck {
   ngOnInit() {
 
     firebase.initializeApp({
-      apiKey: "AIzaSyAK3W-9RTSSVJw579ZJaC0F7ZkxJZo7x2Y",
-      authDomain: "bzorder01.firebaseapp.com",
-      databaseURL: "https://bzorder01.firebaseio.com",
-      projectId: "bzorder01",
-      storageBucket: "bzorder01.appspot.com",
-      messagingSenderId: "1032338270823"
+      apiKey: 'AIzaSyAK3W-9RTSSVJw579ZJaC0F7ZkxJZo7x2Y',
+      authDomain: 'bzorder01.firebaseapp.com',
+      databaseURL: 'https://bzorder01.firebaseio.com',
+      projectId: 'bzorder01',
+      storageBucket: 'bzorder01.appspot.com',
+      messagingSenderId: '1032338270823'
     });
     this.auth.init(() => {
       this.cart.init();
@@ -36,7 +36,7 @@ export class AppComponent implements OnInit, DoCheck {
     window.onresize = this.ngDoCheck;
     this.core.loading.subscribe((loading) => {
       setTimeout(() => { this.loading = loading; }, 50);
-    })
+    });
   }
 
   ngDoCheck() {

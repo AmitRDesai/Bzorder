@@ -8,27 +8,21 @@ export class UserService {
   constructor() { }
 
   updateProfile(profile: User) {
-    let user = firebase.auth().currentUser;
+    const user = firebase.auth().currentUser;
     return user.updateProfile(profile).then( () => {
-    }).catch((error) => {
-      console.log(error);
-    });
+    }).catch(error => console.log(error));
   }
 
-  updateEmail(email: string){
-    let user = firebase.auth().currentUser;
-    return user.updateEmail(email).then(() =>{
-    }).catch((error) => {
-      console.log(error);
-    });
+  updateEmail(email: string) {
+    const user = firebase.auth().currentUser;
+    return user.updateEmail(email).then(() => {
+    }).catch(error => console.log(error));
   }
 
-  updatePassword(newPassword: string){
-    let user = firebase.auth().currentUser;
+  updatePassword(newPassword: string) {
+    const user = firebase.auth().currentUser;
     return user.updatePassword(newPassword).then(function() {
-    }).catch(function(error) {
-      console.log(error);
-    });
+    }).catch(error => console.log(error));
   }
 
 }

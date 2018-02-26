@@ -9,18 +9,18 @@ import { CartService } from '../../core/cart.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  pushRightClass: string = 'push-right';
-  
-  constructor(public auth: AuthService,public router: Router,
+  pushRightClass = 'push-right';
+
+  constructor(public auth: AuthService,
+    public router: Router,
     public cart: CartService) { }
 
   ngOnInit() {
-    
   }
-  
-  onLoggedout(){
+
+  onLoggedout() {
     this.auth.logout();
     this.router.navigate(['login']);
   }
-  
+
 }

@@ -22,7 +22,7 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
     });
     this.form.statusChanges.subscribe(valid => {
       this.cart.isValidAddress = valid;
-    })
+    });
   }
 
 }

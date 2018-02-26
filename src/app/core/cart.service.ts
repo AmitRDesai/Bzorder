@@ -29,8 +29,9 @@ export class CartService {
   }
 
   pushItem(item, vendorId) {
-    if (!this.cartItems[vendorId])
+    if (!this.cartItems[vendorId]) {
       this.cartItems[vendorId] = [];
+    }
     this.cartItems[vendorId].push(item);
     this.refresh();
   }
@@ -49,9 +50,9 @@ export class CartService {
   }
 
   setQuantity() {
-    let vendorIds = Object.keys(this.cartItems);
-    for (let vendorId of vendorIds) {
-      for (let item of this.cartItems[vendorId]) {
+    const vendorIds = Object.keys(this.cartItems);
+    for (const vendorId of vendorIds) {
+      for (const item of this.cartItems[vendorId]) {
         item['quantity'] = item['quantity'] ? item['quantity'] : 1;
       }
     }
@@ -59,8 +60,8 @@ export class CartService {
 
   getCount() {
     let count = 0;
-    let vendorIds = Object.keys(this.cartItems);
-    for (let vendorId of vendorIds) {
+    const vendorIds = Object.keys(this.cartItems);
+    for (const vendorId of vendorIds) {
       count += this.cartItems[vendorId].length;
     }
     return count;
@@ -71,10 +72,11 @@ export class CartService {
   }
 
   clearEmpty() {
-    let vendorIds = Object.keys(this.cartItems);
-    for (let vendorId of vendorIds) {
-      if (this.cartItems[vendorId].length == 0)
+    const vendorIds = Object.keys(this.cartItems);
+    for (const vendorId of vendorIds) {
+      if (this.cartItems[vendorId].length === 0) {
         delete this.cartItems[vendorId];
+      }
     }
     console.log(this.cartItems);
   }

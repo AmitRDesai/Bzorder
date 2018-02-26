@@ -13,8 +13,18 @@ import { KeysPipe } from './keys.pipe';
     CommonModule,
     HttpClientModule
   ],
-  declarations: [ArrayPipe, KeysPipe],
-  providers: [DatabaseService, CoreService, CartService],
-  exports:[ArrayPipe, KeysPipe]
+  declarations: [
+    ArrayPipe,
+    KeysPipe
+  ],
+  providers: [
+    DatabaseService,
+    CoreService,
+    CartService
+  ],
+  exports: [
+    ArrayPipe,
+    KeysPipe
+  ]
 })
 export class CoreModule { }

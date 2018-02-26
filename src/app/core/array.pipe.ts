@@ -7,10 +7,10 @@ export class ArrayPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
     if (value) {
-      let array = new Array<any>();
-      let keys = Object.keys(value);
+      const array = new Array<any>();
+      const keys = Object.keys(value);
       for (let i = 0; i < keys.length; i++) {
-        let temp = value[keys[i]];
+        const temp = value[keys[i]];
         temp.id = keys[i];
         array.push(temp);
       }

@@ -17,12 +17,12 @@ export class VendorListComponent implements OnInit {
     private data: DatabaseService) { }
 
   ngOnInit() {
-    let category_id = this.route.snapshot.params['catogry-id'];
-    this.data.getAllCategories().then((categories)=>{
+    const category_id = this.route.snapshot.params['catogry-id'];
+    this.data.getAllCategories().then((categories) => {
       this.category = categories[category_id];
     });
     this.data.getVendorsByCategoryId(+category_id).then((vendors) => {
       this.vendors = vendors;
-    })
+    });
   }
 }

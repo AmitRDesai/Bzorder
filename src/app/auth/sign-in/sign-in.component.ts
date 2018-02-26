@@ -11,20 +11,18 @@ import { CoreService } from '../../core/core.service';
 })
 export class SignInComponent implements OnInit, AfterViewInit {
 
-  phone: string = '';
+  phone = '';
   code: number;
-  state: number = 0;
+  state = 0;
 
   constructor(private auth: AuthService,
     private core: CoreService,
     private router: Router) { }
 
   ngOnInit() {
-    
   }
 
   ngAfterViewInit() {
-
   }
 
   onSend() {

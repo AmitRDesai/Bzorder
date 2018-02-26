@@ -16,13 +16,13 @@ export class OrderListComponent implements OnInit {
 
   ngOnInit() {
     this.init();
-    this.auth.onLoggedIn.subscribe(()=>{
+    this.auth.onLoggedIn.subscribe(() => {
       this.init();
-    })
+    });
   }
 
-  init(){
-    this.data.getOrders().then((orders)=>{
+  init() {
+    this.data.getOrders().then((orders) => {
       this.orders = orders;
     });
   }

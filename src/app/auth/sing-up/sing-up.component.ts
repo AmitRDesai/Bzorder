@@ -27,7 +27,7 @@ export class SingUpComponent implements OnInit {
           this.router.navigate(['home']);
         });
       });
-    })
+    });
   }
 
 }

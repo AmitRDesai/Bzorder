@@ -5,10 +5,10 @@ import { Subject } from 'rxjs/Subject';
 export class CoreService {
 
   public loading = new Subject<boolean>();
-  
+
   constructor() { }
 
-  setLoading(loading: boolean){
+  setLoading(loading: boolean) {
     this.loading.next(loading);
   }
 

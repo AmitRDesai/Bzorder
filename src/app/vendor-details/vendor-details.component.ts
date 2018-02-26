@@ -25,42 +25,43 @@ export class VendorDetailsComponent implements OnInit {
     if (this.vendorId) {
       this.data.getVendorById(this.vendorId).then((vendor) => {
         this.vendor = vendor;
-      })
-      this.data.getItemsByVendorId(this.vendorId).then(items => {
-        this.items = items;
-      })
+      });
+      this.data.getItemsByVendorId(this.vendorId).then(data => {
+        this.items = data;
+      });
     }
-    let items = this.cart.getCartItems();
-    if(items[this.vendorId]){
-      for (let item of items[this.vendorId]) {
+    const items = this.cart.getCartItems();
+    if (items[this.vendorId]) {
+      for (const item of items[this.vendorId]) {
         this.cartItems.push(item.id);
       }
     }
-    this.cart.cartItemsChanged.subscribe(items=>{
-      for (let item of items) {
+    this.cart.cartItemsChanged.subscribe(data => {
+      for (const item of data) {
         this.cartItems.push(item.id);
       }
     });
   }
 
   updateCart(item) {
-    const index = this.cartItems.indexOf(item.id)
-    if (index == -1) {
+    const index = this.cartItems.indexOf(item.id);
+    if (index === -1) {
       this.cartItems.push(item.id);
-      this.cart.pushItem(item,this.vendorId);
+      this.cart.pushItem(item, this.vendorId);
     } else {
       this.cartItems.splice(index, 1);
-      this.cart.removeItem(index,this.vendorId);
+      this.cart.removeItem(index, this.vendorId);
     }
   }
 
   changeQty(item, up) {
     item.quantity = item.quantity ? item.quantity : 0;
-    if (up)
+    if (up) {
       item.quantity++;
-    else {
-      if (item.quantity > 1)
+    }else {
+      if (item.quantity > 1) {
         item.quantity--;
+      }
     }
   }
 

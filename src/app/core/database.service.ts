@@ -28,7 +28,7 @@ export class DatabaseService {
     this.categoriesRef = this.rootRef.child('categories');
     this.usersRef = this.rootRef.child('users');
     this.getVendorsByCategoryId(1);
-    this.getItemsByVendorId('-L2aHUROXKhizmimuwaD')
+    this.getItemsByVendorId('-L2aHUROXKhizmimuwaD');
   }
 
   getAllItems() {
@@ -75,8 +75,9 @@ export class DatabaseService {
   }
 
   getAllCategories() {
-    if (this.categories)
+    if (this.categories) {
       return Promise.resolve(this.categories);
+    }
     this.core.setLoading(true);
     return this.categoriesRef.once('value').then((categories) => {
       this.core.setLoading(false);
@@ -86,8 +87,9 @@ export class DatabaseService {
   }
 
   getAllVendors() {
-    if (this.vendors)
+    if (this.vendors) {
       return Promise.resolve(this.vendors);
+    }
     this.core.setLoading(true);
     return this.vendorsRef.once('value').then((vendors) => {
       this.core.setLoading(false);
@@ -98,7 +100,7 @@ export class DatabaseService {
 
   saveOrder(items, address) {
     const uid = firebase.auth().currentUser.uid;
-    let order = {
+    const order = {
       'items': items,
       'address': address,
       'date': new Date().toDateString(),
@@ -107,7 +109,7 @@ export class DatabaseService {
     this.core.setLoading(true);
     return this.usersRef.child(uid).child('orders').push(order).then(() => {
       this.core.setLoading(false);
-    })
+    });
   }
 
   getUserData() {
@@ -117,7 +119,7 @@ export class DatabaseService {
         return data.val();
       }).catch((err) => {
         console.log(err);
-      })
+      });
     }
     return Promise.resolve({});
   }
@@ -128,7 +130,7 @@ export class DatabaseService {
       return this.usersRef.child(user.uid).child('cart').set(cartItem).then(() => {
       }).catch((err) => {
         console.log(err);
-      })
+      });
     }
     return Promise.resolve();
   }
@@ -153,7 +155,7 @@ export class DatabaseService {
       return this.usersRef.child(user.uid).child('orders').once('value').then((data) => {
         this.core.setLoading(false);
         return data.val();
-      })
+      });
     }
     return Promise.resolve([]);
   }

@@ -26,8 +26,9 @@ export class AuthService {
         this.loggedUser = user;
         if (user.displayName) {
           this.isLoggedIn = true;
-          if (this.router.url === '/login' || this.router.url === '/sign-up')
+          if (this.router.url === '/login' || this.router.url === '/sign-up') {
             this.router.navigate(['home']);
+          }
         } else {
           this.router.navigate(['sign-up']);
         }
@@ -49,14 +50,12 @@ export class AuthService {
   login(user: User) {
     firebase.auth().signInWithEmailAndPassword(user.email, user.password)
       .then(res => {})
-      .catch(err => 
-        console.log(err)
-      );
+      .catch(err => console.log(err));
   }
 
   sendCode(phone: string) {
     firebase.auth().signInWithPhoneNumber(phone, this.recaptchaVerifier)
-      .then(confirmation => { this.confirmation = confirmation })
+      .then(confirmation => this.confirmation = confirmation)
       .catch(err => console.log(err));
   }
 
@@ -86,7 +85,7 @@ export class AuthService {
   }
 
   refresh() {
-    let user = firebase.auth().currentUser;
+    const user = firebase.auth().currentUser;
     if (user) {
       this.loggedUser = user;
       this.isLoggedIn = true;
