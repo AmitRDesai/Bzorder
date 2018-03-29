@@ -33,7 +33,7 @@ export class AppComponent implements OnInit, DoCheck {
       this.cart.init();
     });
     this.data.init();
-    window.onresize = this.ngDoCheck;
+    window.addEventListener('resize', this.ngDoCheck);
     this.core.loading.subscribe((loading) => {
       setTimeout(() => { this.loading = loading; }, 50);
     });

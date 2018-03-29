@@ -11,17 +11,18 @@ export class VendorListComponent implements OnInit {
 
   vendors = [];
   category: string = null;
+  category_id: number;
 
   constructor(private router: Router,
     private route: ActivatedRoute,
     private data: DatabaseService) { }
 
   ngOnInit() {
-    const category_id = this.route.snapshot.params['catogry-id'];
+    this.category_id = this.route.snapshot.params['catogry-id'];
     this.data.getAllCategories().then((categories) => {
-      this.category = categories[category_id];
+      this.category = categories[this.category_id];
     });
-    this.data.getVendorsByCategoryId(+category_id).then((vendors) => {
+    this.data.getVendorsByCategoryId(+this.category_id).then((vendors) => {
       this.vendors = vendors;
     });
   }

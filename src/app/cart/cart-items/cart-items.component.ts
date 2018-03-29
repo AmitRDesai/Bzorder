@@ -28,7 +28,7 @@ export class CartItemsComponent implements OnInit {
   changeQty(item, up) {
     if (up) {
       item.quantity++;
-    }else {
+    } else {
       if (item.quantity > 1) {
         item.quantity--;
       }

@@ -31,6 +31,7 @@ import { OrderPlacedComponent } from './cart/order-placed/order-placed.component
 import { Globals } from './utils/globals';
 import { UserInfoComponent } from './my-profile/user-info/user-info.component';
 import { OrderListComponent } from './my-profile/order-list/order-list.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { OrderListComponent } from './my-profile/order-list/order-list.component
     CartItemsComponent,
     OrderPlacedComponent,
     UserInfoComponent,
-    OrderListComponent
+    OrderListComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

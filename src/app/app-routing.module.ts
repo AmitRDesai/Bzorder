@@ -13,6 +13,7 @@ import { CheckoutComponent } from './cart/checkout/checkout.component';
 import { OrderPlacedComponent } from './cart/order-placed/order-placed.component';
 import { UserInfoComponent } from './my-profile/user-info/user-info.component';
 import { OrderListComponent } from './my-profile/order-list/order-list.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -28,7 +29,7 @@ const routes: Routes = [
       { path: 'order-placed', component: OrderPlacedComponent }
     ]
   },
-  { path: 'about-us', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'about-us', component: AboutUsComponent, canActivate: [AuthGuard] },
   { path: 'partner-with-us', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'support', component: HomeComponent, canActivate: [AuthGuard] },
   {

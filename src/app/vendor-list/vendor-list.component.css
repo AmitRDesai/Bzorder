@@ -8,3 +8,9 @@ img.vendor{
     height: 100px;
     width: 100%;
 }
+.title-img {
+    display: inline;
+    max-width: 50px;
+    max-height: 50px;
+    margin: 10px;
+}
