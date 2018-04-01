@@ -14,6 +14,7 @@ import { OrderPlacedComponent } from './cart/order-placed/order-placed.component
 import { UserInfoComponent } from './my-profile/user-info/user-info.component';
 import { OrderListComponent } from './my-profile/order-list/order-list.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { PartherWithUsComponent } from './parther-with-us/parther-with-us.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -30,7 +31,7 @@ const routes: Routes = [
     ]
   },
   { path: 'about-us', component: AboutUsComponent, canActivate: [AuthGuard] },
-  { path: 'partner-with-us', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'partner-with-us', component: PartherWithUsComponent, canActivate: [AuthGuard] },
   { path: 'support', component: HomeComponent, canActivate: [AuthGuard] },
   {
     path: 'my-profile', component: MyProfileComponent, children: [

@@ -26,7 +26,6 @@ export class DatabaseService {
     this.vendorsRef = this.rootRef.child('vendors');
     this.usersRef = this.rootRef.child('users');
     this.categoriesRef = this.rootRef.child('categories');
-    this.usersRef = this.rootRef.child('users');
     this.getVendorsByCategoryId(1);
     this.getItemsByVendorId('-L2aHUROXKhizmimuwaD');
   }

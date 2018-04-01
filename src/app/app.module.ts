@@ -32,6 +32,7 @@ import { Globals } from './utils/globals';
 import { UserInfoComponent } from './my-profile/user-info/user-info.component';
 import { OrderListComponent } from './my-profile/order-list/order-list.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { PartherWithUsComponent } from './parther-with-us/parther-with-us.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     OrderPlacedComponent,
     UserInfoComponent,
     OrderListComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    PartherWithUsComponent
   ],
   imports: [
     BrowserModule,
