@@ -33,6 +33,7 @@ import { UserInfoComponent } from './my-profile/user-info/user-info.component';
 import { OrderListComponent } from './my-profile/order-list/order-list.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { PartherWithUsComponent } from './parther-with-us/parther-with-us.component';
+import { SupportHelpComponent } from './support-help/support-help.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { PartherWithUsComponent } from './parther-with-us/parther-with-us.compon
     UserInfoComponent,
     OrderListComponent,
     AboutUsComponent,
-    PartherWithUsComponent
+    PartherWithUsComponent,
+    SupportHelpComponent
   ],
   imports: [
     BrowserModule,
